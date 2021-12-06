@@ -12,7 +12,7 @@ interface LayoutProps {
 }
 
 const ROUTES = [
-  { path: '/home', text: 'HOME' },
+  { path: '/', text: 'HOME' },
   { path: '/about', text: 'ABOUT' },
   { path: '/portfolio', text: 'PORTFOLIO' },
   { path: '/contact', text: 'CONTACT' },
