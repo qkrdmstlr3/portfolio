@@ -20,6 +20,8 @@ const ROUTES = [
 ];
 
 function Layout({ children, path }: LayoutProps) {
+  const currentRoute = ROUTES.find((route) => route.path === path);
+
   return (
     <>
       <Helmet>
@@ -28,7 +30,7 @@ function Layout({ children, path }: LayoutProps) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet" />
       </Helmet>
-      <GlobalStyle backgroundColor={ROUTES.find((route) => route.path === path).backgroundColor} />
+      <GlobalStyle backgroundColor={currentRoute && currentRoute.backgroundColor} />
       <Style.Header isHomePage={path === '/'}>
         <Style.Nav>
           <AudioOffIcon width={32} height={32} color="white" />
