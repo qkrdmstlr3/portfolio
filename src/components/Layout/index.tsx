@@ -9,18 +9,17 @@ import * as Style from './styled';
 
 interface LayoutProps {
   children: React.ReactNode;
-  backgroundColor: string;
-  isNavTop?: boolean;
+  path: string;
 }
 
 const ROUTES = [
-  { path: '/', text: 'HOME' },
-  { path: '/about', text: 'ABOUT' },
-  { path: '/portfolio', text: 'PORTFOLIO' },
-  { path: '/contact', text: 'CONTACT' },
+  { path: '/', text: 'HOME', backgroundColor: '#35425E' },
+  { path: '/about/', text: 'ABOUT', backgroundColor: '#186400' },
+  { path: '/portfolio/', text: 'PORTFOLIO', backgroundColor: '#999999' },
+  { path: '/contact/', text: 'CONTACT', backgroundColor: '#AE0000' },
 ];
 
-function Layout({ children, backgroundColor, isNavTop = true }: LayoutProps) {
+function Layout({ children, path }: LayoutProps) {
   return (
     <>
       <Helmet>
@@ -29,8 +28,8 @@ function Layout({ children, backgroundColor, isNavTop = true }: LayoutProps) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet" />
       </Helmet>
-      <Style.Container isNavTop={isNavTop}>
-        <GlobalStyle backgroundColor={backgroundColor} />
+      <Style.Container isNavTop={false}>
+        <GlobalStyle backgroundColor={ROUTES.find((route) => route.path === path).backgroundColor} />
         <Style.Header>
           <Style.Nav>
             <AudioOffIcon width={32} height={32} color="white" />
