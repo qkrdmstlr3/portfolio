@@ -28,24 +28,22 @@ function Layout({ children, path }: LayoutProps) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet" />
       </Helmet>
-      <Style.Container isNavTop={false}>
-        <GlobalStyle backgroundColor={ROUTES.find((route) => route.path === path).backgroundColor} />
-        <Style.Header>
-          <Style.Nav>
-            <AudioOffIcon width={32} height={32} color="white" />
-            {pipe(
-              ROUTES,
-              map((route) => (
-                <Style.MenuItem key={route.path}>
-                  <Link to={route.path}>{route.text}</Link>
-                </Style.MenuItem>
-              )),
-              toArray
-            )}
-          </Style.Nav>
-        </Style.Header>
-        {children}
-      </Style.Container>
+      <GlobalStyle backgroundColor={ROUTES.find((route) => route.path === path).backgroundColor} />
+      <Style.Header isHomePage={path === '/'}>
+        <Style.Nav>
+          <AudioOffIcon width={32} height={32} color="white" />
+          {pipe(
+            ROUTES,
+            map((route) => (
+              <Style.MenuItem key={route.path}>
+                <Link to={route.path}>{route.text}</Link>
+              </Style.MenuItem>
+            )),
+            toArray
+          )}
+        </Style.Nav>
+      </Style.Header>
+      {children}
     </>
   );
 }
