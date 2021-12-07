@@ -11,12 +11,13 @@ function GlobalStyle({ backgroundColor }: GlobalStyleProps): React.ReactElement 
       styles={css`
         * {
           box-sizing: border-box;
-          font-family: Roboto;
+          font-family: 'Comfortaa';
           margin: 0;
           padding: 0;
         }
         html,
         body {
+          height: 100%;
           font-size: 62.5%;
           background-color: ${backgroundColor};
         }
