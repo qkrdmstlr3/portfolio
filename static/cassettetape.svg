@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 190">
+  <defs>
+    <style>
+      @keyframes tape-gear-ani {
+        100% {transform: rotate(180deg)}
+      }
+      @keyframes tape-left-ani {
+        100% {r: 210;}
+      }
+      @keyframes tape-right-ani {
+        100% {r: 110;}
+      }
+      #tape-rect-1 {
+        transform: translate(24px, -24px) rotate(45deg);
+        transform-origin: 110px 95px;
+      }
+      #tape-rect-2 {
+        transform: translate(-24px, 24px) rotate(45deg);
+        transform-origin: 110px 95px;
+      }
+      #tape-rect-3 {
+        transform: translate(-24px, -24px) rotate(135deg);
+        transform-origin: 110px 95px;
+      }
+      #tape-rect-4 {
+        transform: translate(24px, 24px) rotate(135deg);
+        transform-origin: 110px 95px;
+      }
+      #tape-rect-5 {
+        transform: translate(24px, -24px) rotate(45deg);
+        transform-origin: 590px 95px;
+      }
+      #tape-rect-6 {
+        transform: translate(-24px, 24px) rotate(45deg);
+        transform-origin: 590px 95px;
+      }
+      #tape-rect-7 {
+        transform: translate(-24px, -24px) rotate(135deg);
+        transform-origin: 590px 95px;
+      }
+      #tape-rect-8 {
+        transform: translate(24px, 24px) rotate(135deg);
+        transform-origin: 590px 95px;
+      }
+      #tape-left-gear {
+        animation: tape-gear-ani 1s linear infinite;
+        transform-origin: 110px 95px;
+      }
+      #tape-right-gear {
+        animation: tape-gear-ani 1s linear infinite;
+        transform-origin: 590px 95px;
+      }
+      #tape-left {
+        animation: tape-left-ani 240s linear infinite;
+        transform-origin: 110px 95px;
+      }
+      #tape-right {
+        animation: tape-right-ani 240s linear infinite;
+        transform-origin: 590px 95px;
+      }
+    </style>
+    <mask id="gear-mask">
+      <circle
+        cx="110"
+        cy="95"
+        r="40"
+        fill="#fff"
+      />
+      <circle
+        cx="590"
+        cy="95"
+        r="40"
+        fill="#fff"
+      />
+    </mask>
+    <mask id="tape-mask">
+      <rect
+        x="200"
+        y="35"
+        rx="10" 
+        ry="10"
+        width="300"
+        height="120"
+        fill="white" 
+      />
+    </mask>
+  </defs>
+  <rect 
+    x="0" 
+    y="0"
+    rx="10" 
+    ry="10"
+    width="700" 
+    height="190" 
+    fill="transparent" 
+    stroke="black" 
+    stroke-width="6" 
+  />
+  <rect
+    x="200"
+    y="35"
+    rx="10" 
+    ry="10"
+    width="300"
+    height="120"
+    fill="black" 
+  />
+  <g>
+    <circle
+      cx="110"
+      cy="95"
+      r="60"
+      fill="#bbb"
+    />
+    <circle
+      cx="110"
+      cy="95"
+      r="40"
+      fill="#fff"
+    />
+    <circle
+      cx="110"
+      cy="95"
+      r="35"
+      fill="#000"
+    />
+    <circle
+      id="tape-left"
+      mask="url(#tape-mask)"
+      cx="110"
+      cy="95"
+      r="110"
+      fill="#533B3C"
+    />
+    <circle
+      mask="url(#tape-mask)"
+      cx="110"
+      cy="95"
+      r="105"
+      fill="#bbb"
+    />
+    <g mask="url(#gear-mask)" id="tape-left-gear">
+      <rect x="106.5" y="55" width="7" height="12" fill="#fff" />
+      <rect x="106.5" y="123" width="7" height="12" fill="#fff" />
+      <rect x="70" y="91.5" width="12" height="7" fill="#fff" />
+      <rect x="138" y="91.5" width="12" height="7" fill="#fff" />
+      <rect id="tape-rect-1" x="106.5" y="89" width="7" height="12" fill="#fff" />
+      <rect id="tape-rect-2" x="106.5" y="89" width="7" height="12" fill="#fff" />
+      <rect id="tape-rect-3" x="106.5" y="89" width="7" height="12" fill="#fff" />
+      <rect id="tape-rect-4" x="106.5" y="89" width="7" height="12" fill="#fff" />
+    </g>
+  </g>
+  <g>
+    <circle
+      cx="590"
+      cy="95"
+      r="60"
+      fill="#bbb"
+    />
+    <circle
+      cx="590"
+      cy="95"
+      r="40"
+      fill="#fff"
+    />
+    <circle
+      cx="590"
+      cy="95"
+      r="35"
+      fill="#000"
+    />
+    <circle
+      id="tape-right"
+      mask="url(#tape-mask)"
+      cx="590"
+      cy="95"
+      r="210"
+      fill="#533B3C"
+    />
+    <circle
+      mask="url(#tape-mask)"
+      cx="590"
+      cy="95"
+      r="105"
+      fill="#bbb"
+    />
+    <g mask="url(#gear-mask)" id="tape-right-gear">
+      <rect x="586.5" y="55" width="7" height="12" fill="#fff" />
+      <rect x="586.5" y="123" width="7" height="12" fill="#fff" />
+      <rect x="550" y="91.5" width="12" height="7" fill="#fff" />
+      <rect x="618" y="91.5" width="12" height="7" fill="#fff" />
+      <rect id="tape-rect-5" x="586.5" y="89" width="7" height="12" fill="#fff" />
+      <rect id="tape-rect-6" x="586.5" y="89" width="7" height="12" fill="#fff" />
+      <rect id="tape-rect-7" x="586.5" y="89" width="7" height="12" fill="#fff" />
+      <rect id="tape-rect-8" x="586.5" y="89" width="7" height="12" fill="#fff" />
+    </g>
+  </g>
+  <rect
+    x="200"
+    y="50"
+    width="300"
+    height="10"
+    fill="rgba(255,255,255, 0.3)"
+  />
+  <rect
+    x="200"
+    y="70"
+    width="300"
+    height="20"
+    fill="rgba(255,255,255, 0.3)"
+  />
+</svg>
