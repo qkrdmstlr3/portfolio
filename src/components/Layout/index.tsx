@@ -9,18 +9,18 @@ import * as Style from './styled';
 
 interface LayoutProps {
   children: React.ReactNode;
-  path: string;
+  uri: string;
 }
 
 const ROUTES = [
   { path: '/', text: 'HOME', backgroundColor: '#35425E' },
-  { path: '/about/', text: 'ABOUT', backgroundColor: '#186400' },
-  { path: '/portfolio/', text: 'PORTFOLIO', backgroundColor: '#999999' },
-  { path: '/contact/', text: 'CONTACT', backgroundColor: '#AE0000' },
+  { path: '/about', text: 'ABOUT', backgroundColor: '#186400' },
+  { path: '/portfolio', text: 'PORTFOLIO', backgroundColor: '#999999' },
+  { path: '/contact', text: 'CONTACT', backgroundColor: '#AE0000' },
 ];
 
-function Layout({ children, path }: LayoutProps) {
-  const currentRoute = ROUTES.find((route) => route.path === path);
+function Layout({ children, uri }: LayoutProps) {
+  const currentRoute = ROUTES.find((route) => uri === route.path);
 
   return (
     <>
@@ -31,7 +31,7 @@ function Layout({ children, path }: LayoutProps) {
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet" />
       </Helmet>
       <GlobalStyle backgroundColor={currentRoute && currentRoute.backgroundColor} />
-      <Style.Header isHomePage={path === '/'}>
+      <Style.Header isHomePage={uri === '/'}>
         <Style.Nav>
           <AudioOffIcon width={32} height={32} color="white" />
           {pipe(
