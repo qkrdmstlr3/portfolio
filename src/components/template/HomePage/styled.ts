@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import mq from '../../../style/mq';
 
 export const Container = styled.main`
   position: absolute;
@@ -12,6 +13,10 @@ export const Title = styled.h1`
   text-align: center;
   font-size: 6.4rem;
   color: #f0f0f0;
+
+  ${mq('md')} {
+    font-size: 4rem;
+  }
 `;
 
 export const TapeImage = styled.img`

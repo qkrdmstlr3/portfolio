@@ -33,7 +33,9 @@ function Layout({ children, uri }: LayoutProps) {
       <GlobalStyle backgroundColor={currentRoute && currentRoute.backgroundColor} />
       <Style.Header isHomePage={uri === '/'}>
         <Style.Nav>
-          <AudioOffIcon width={32} height={32} color="white" />
+          <Style.IconWrapper>
+            <AudioOffIcon color="white" />
+          </Style.IconWrapper>
           {pipe(
             ROUTES,
             map((route) => (

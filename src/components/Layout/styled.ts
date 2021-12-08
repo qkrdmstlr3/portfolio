@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import mq from '../../style/mq';
 
 interface HeaderProps {
   isHomePage: boolean;
@@ -14,17 +15,33 @@ export const Header = styled.header<HeaderProps>`
   transform: ${(props) => (props.isHomePage ? 'translateY(-50%)' : '20px')};
   color: #f0f0f0;
   transition: all 0.5s linear;
+
+  ${mq('md')} {
+    top: 20px;
+  }
 `;
 
 export const Nav = styled.nav`
   margin: 0 auto;
   margin-top: 2rem;
+  padding: 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   width: 800px;
 `;
 
+export const IconWrapper = styled.div`
+  width: 32px;
+  ${mq('md')} {
+    width: 24px;
+  }
+`;
+
 export const MenuItem = styled.span`
   font-size: 2.4rem;
+
+  ${mq('md')} {
+    font-size: 1.5rem;
+  }
 `;
