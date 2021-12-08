@@ -1,7 +1,8 @@
 import React from 'react';
+import ContactPageTemplate from '../components/template/ContactPage';
 
 function ContactPage() {
-  return <div>hello</div>;
+  return <ContactPageTemplate />;
 }
 
 export default ContactPage;
