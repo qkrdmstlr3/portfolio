@@ -90,13 +90,11 @@
   <rect 
     x="0" 
     y="0"
-    rx="10" 
-    ry="10"
+    rx="100" 
+    ry="100"
     width="700" 
-    height="190" 
-    fill="transparent" 
-    stroke="black" 
-    stroke-width="6" 
+    height="190"
+    fill="#EACE0A"
   />
   <rect
     x="200"
@@ -113,6 +111,8 @@
       cy="95"
       r="60"
       fill="#bbb"
+      stroke="#888"
+      stroke-width="3"
     />
     <circle
       cx="110"
@@ -158,6 +158,8 @@
       cy="95"
       r="60"
       fill="#bbb"
+      stroke="#888"
+      stroke-width="3"
     />
     <circle
       cx="590"

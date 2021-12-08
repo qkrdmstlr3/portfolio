@@ -22,6 +22,5 @@ export const Title = styled.h1`
 export const TapeImage = styled.img`
   display: block;
   margin: 0 auto;
-  padding: 2rem 1rem 0 1rem;
   max-width: 800px;
 `;
