@@ -43,19 +43,21 @@
         transform-origin: 590px 95px;
       }
       #tape-left-gear {
-        animation: tape-gear-ani 1s linear infinite;
+        animation: tape-gear-ani 1s linear 180;
         transform-origin: 110px 95px;
       }
       #tape-right-gear {
-        animation: tape-gear-ani 1s linear infinite;
+        animation: tape-gear-ani 1s linear 180;
         transform-origin: 590px 95px;
       }
       #tape-left {
-        animation: tape-left-ani 240s linear infinite;
+        animation: tape-left-ani 180s linear;
+        animation-fill-mode: backwards;
         transform-origin: 110px 95px;
       }
       #tape-right {
-        animation: tape-right-ani 240s linear infinite;
+        animation: tape-right-ani 180s linear;
+        animation-fill-mode: backwards;
         transform-origin: 590px 95px;
       }
     </style>
