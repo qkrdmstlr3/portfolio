@@ -1,9 +1,21 @@
+/* eslint-disable no-nested-ternary */
 import styled from '@emotion/styled';
+
+type StatusType = 'selected' | 'hovered' | 'none';
+interface MusicItemProps {
+  status: StatusType;
+}
+
+const backgroundMapping: { [state in StatusType]: string } = {
+  selected: '#aaa',
+  hovered: '#ddd',
+  none: 'transparent',
+};
 
 export const Container = styled.main`
   width: 400px;
   margin: 0 auto;
-  margin-top: 12rem;
+  margin-top: 15rem;
 `;
 
 export const MusicList = styled.ul`
@@ -14,7 +26,22 @@ export const MusicList = styled.ul`
   border-radius: 10px;
 `;
 
-export const MusicItem = styled.li``;
+export const MusicItem = styled.li<MusicItemProps>`
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: ${(props) => backgroundMapping[props.status]};
+`;
+
+export const Title = styled.h2`
+  font-size: 2.4rem;
+  user-select: none;
+`;
+
+export const Content = styled.span`
+  font-size: 1.8rem;
+  user-select: none;
+`;
 
 export const Controller = styled.div`
   width: 22rem;

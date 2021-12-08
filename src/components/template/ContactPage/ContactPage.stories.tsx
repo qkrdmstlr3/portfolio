@@ -1,5 +1,6 @@
 import React from 'react';
 import ContactPageTemplate from '.';
+import { infoList } from '../../../constants';
 import Layout from '../../Layout';
 
 export default {
@@ -9,6 +10,6 @@ export default {
 
 export const contactPageTemplate = () => (
   <Layout uri="/contact">
-    <ContactPageTemplate />
+    <ContactPageTemplate infoList={infoList} />
   </Layout>
 );

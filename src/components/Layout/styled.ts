@@ -15,6 +15,7 @@ export const Header = styled.header<HeaderProps>`
   transform: ${(props) => (props.isHomePage ? 'translateY(-50%)' : '20px')};
   color: #f0f0f0;
   transition: all 0.5s linear;
+  user-select: none;
 
   ${mq('md')} {
     top: 20px;
