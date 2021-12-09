@@ -17,7 +17,7 @@ function GlobalStyle({ backgroundColor }: GlobalStyleProps): React.ReactElement 
         }
         html,
         body {
-          height: 100%;
+          height: auto;
           font-size: 62.5%;
           background-color: ${backgroundColor};
         }
