@@ -1,7 +1,9 @@
 import React from 'react';
+import PortfolioPageTemplate from '../components/template/PortfolioPage';
+import { portfolioList } from '../constants';
 
 function Portfolio() {
-  return <div>hello</div>;
+  return <PortfolioPageTemplate portfolioList={portfolioList} />;
 }
 
 export default Portfolio;
