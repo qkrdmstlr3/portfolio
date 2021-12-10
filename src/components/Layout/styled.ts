@@ -32,13 +32,6 @@ export const Nav = styled.nav`
   width: 800px;
 `;
 
-export const IconWrapper = styled.div`
-  width: 32px;
-  ${mq('md')} {
-    width: 24px;
-  }
-`;
-
 export const MenuItem = styled.span`
   font-size: 2.4rem;
 

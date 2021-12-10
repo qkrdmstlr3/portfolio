@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 import { Helmet } from 'react-helmet';
 import { map, pipe, toArray } from '@fxts/core';
 
-import AudioOffIcon from '../UI/Icon/AudioOff';
+import HomeAudioIcon from '../UI/HomeAudioIcon';
 import GlobalStyle from '../../style/GlobalStyle';
 import * as Style from './styled';
 
@@ -33,9 +33,7 @@ function Layout({ children, uri }: LayoutProps) {
       <GlobalStyle backgroundColor={currentRoute && currentRoute.backgroundColor} />
       <Style.Header isHomePage={uri === '/'}>
         <Style.Nav>
-          <Style.IconWrapper>
-            <AudioOffIcon color="white" />
-          </Style.IconWrapper>
+          {uri === '/' && <HomeAudioIcon />}
           {pipe(
             ROUTES,
             map((route) => (
