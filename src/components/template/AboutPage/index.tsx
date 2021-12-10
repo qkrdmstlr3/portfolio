@@ -28,7 +28,7 @@ function ContactPage() {
         <Style.RightSecond />
         <Style.RightThird>
           <Style.Content textAlign="left">네이버 부스트캠프 5기(2020.08 - 12)</Style.Content>
-          <Style.Content textAlign="left">Satrec Analytics 인턴(2021.07 - 08)</Style.Content>
+          <Style.Content textAlign="left">SI Analytics 인턴(2021.07 - 08)</Style.Content>
         </Style.RightThird>
       </Style.IntroduceWrapper>
     </Style.Container>
