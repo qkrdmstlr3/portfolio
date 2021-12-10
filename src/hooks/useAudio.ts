@@ -8,7 +8,7 @@ interface UseAudioType {
 }
 
 const useAudio = (url: string): UseAudioType => {
-  const audio = useRef<HTMLAudioElement>(new Audio(url));
+  const audio = useRef<HTMLAudioElement>();
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(false);
 
@@ -34,6 +34,7 @@ const useAudio = (url: string): UseAudioType => {
   }, [audio]);
 
   useEffect(() => {
+    audio.current = new Audio(url);
     return () => audio.current.pause();
   }, []);
 
