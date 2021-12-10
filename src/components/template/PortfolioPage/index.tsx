@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { map, pipe, toArray } from '@fxts/core';
+import { map, pipe, filter, reduce, toArray } from '@fxts/core';
 import PlayIcon from '../../UI/Icon/Play';
 import PrevIcon from '../../UI/Icon/Prev';
 import NextIcon from '../../UI/Icon/Next';
@@ -49,7 +49,12 @@ function PortfolioPage({ portfolioList }: PortfolioPageType) {
           {!isPlaying && (
             <Style.LpInfo>
               <Style.Date>
-                {portfolio.startDate.toLocaleString().slice(0, 12)} ~ {portfolio.endDate?.toLocaleString().slice(0, 12)}
+                {pipe(
+                  [portfolio.startDate, portfolio.endDate],
+                  filter((date) => date),
+                  map((date) => date.toLocaleString().slice(0, 12)),
+                  reduce((acc, cur) => `${acc} ~ ${cur}`)
+                )}
               </Style.Date>
               <Style.LinkList>
                 <Style.LinkWrapper href={portfolio.deployLink} target="_blank">
