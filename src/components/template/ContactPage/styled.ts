@@ -1,5 +1,5 @@
-/* eslint-disable no-nested-ternary */
 import styled from '@emotion/styled';
+import mq from '../../../style/mq';
 
 type StatusType = 'selected' | 'none';
 interface MusicItemProps {
@@ -10,6 +10,11 @@ export const Container = styled.main`
   width: 400px;
   margin: 0 auto;
   margin-top: 15rem;
+
+  ${mq('sm')} {
+    width: 300px;
+    margin-top: 9rem;
+  }
 `;
 
 export const MusicList = styled.ul`
@@ -18,6 +23,10 @@ export const MusicList = styled.ul`
   overflow: auto;
   background-color: #fff;
   border-radius: 10px;
+
+  ${mq('sm')} {
+    height: 270px;
+  }
 `;
 
 export const MusicItem = styled.li<MusicItemProps>`
@@ -31,16 +40,19 @@ export const MusicItem = styled.li<MusicItemProps>`
 export const Title = styled.h2`
   font-size: 2.4rem;
   user-select: none;
-`;
 
-export const Content = styled.span`
-  font-size: 1.8rem;
-  user-select: none;
+  ${mq('sm')} {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Link = styled.a`
   font-size: 1.8rem;
   user-select: none;
+
+  ${mq('sm')} {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Controller = styled.div`
@@ -55,6 +67,10 @@ export const Controller = styled.div`
   padding: 1rem;
   border-radius: 11rem;
   background-color: #fff;
+
+  ${mq('sm')} {
+    margin-top: 4rem;
+  }
 `;
 
 export const ControllerMiddle = styled.div`
