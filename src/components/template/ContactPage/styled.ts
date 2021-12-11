@@ -1,16 +1,10 @@
 /* eslint-disable no-nested-ternary */
 import styled from '@emotion/styled';
 
-type StatusType = 'selected' | 'hovered' | 'none';
+type StatusType = 'selected' | 'none';
 interface MusicItemProps {
   status: StatusType;
 }
-
-const backgroundMapping: { [state in StatusType]: string } = {
-  selected: '#aaa',
-  hovered: '#ddd',
-  none: 'transparent',
-};
 
 export const Container = styled.main`
   width: 400px;
@@ -30,7 +24,8 @@ export const MusicItem = styled.li<MusicItemProps>`
   padding: 1rem;
   display: flex;
   justify-content: space-between;
-  background-color: ${(props) => backgroundMapping[props.status]};
+  color: ${(props) => (props.status === 'selected' ? '#fff' : '#000')};
+  background-color: ${(props) => (props.status === 'selected' ? '#32425e' : 'transparent')};
 `;
 
 export const Title = styled.h2`
@@ -39,6 +34,11 @@ export const Title = styled.h2`
 `;
 
 export const Content = styled.span`
+  font-size: 1.8rem;
+  user-select: none;
+`;
+
+export const Link = styled.a`
   font-size: 1.8rem;
   user-select: none;
 `;

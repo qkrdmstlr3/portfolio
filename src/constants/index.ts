@@ -2,9 +2,9 @@ import { ContactInfo } from '../components/template/ContactPage';
 import { PortfolioType } from '../components/template/PortfolioPage';
 
 export const infoList: ContactInfo[] = [
-  { title: 'EMAIL', content: 'qkrdmstlr3@naver.com' },
-  { title: 'GIT', content: 'https://github.com/qkrdmstlr3' },
-  { title: 'BLOG', content: 'https://shellboylog.com' },
+  { title: 'EMAIL', content: 'qkrdmstlr3@naver.com', musicLink: '/music/test.mp3' },
+  { title: 'GIT', content: 'https://github.com/qkrdmstlr3', musicLink: '/music/test2.mp3' },
+  { title: 'BLOG', content: 'https://shellboylog.com', musicLink: '/music/test3.mp3' },
 ];
 
 export const portfolioList: PortfolioType[] = [
