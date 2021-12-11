@@ -1,4 +1,4 @@
 node_modules/
 .cache/
 public
-static/music/test.mp3
+static/music/*.mp3
