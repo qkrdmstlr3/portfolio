@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
 
+interface ContentBoxProps {
+  time: number;
+}
+
 interface ContentProps {
   textAlign: 'left' | 'right';
 }
@@ -19,7 +23,7 @@ export const CDPlayer = styled.img`
 export const IntroduceWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: calc(100vh - 42rem);
+  height: calc(100vh);
   display: flex;
   justify-content: center;
 `;
@@ -45,59 +49,71 @@ export const Emphasize = styled.strong`
   font-size: 3.6rem;
 `;
 
-export const LeftFirst = styled.div`
+export const LeftFirst = styled.div<ContentBoxProps>`
   position: absolute;
   padding: 6px;
-  left: -60%;
+  left: ${(props) => (props.time > 1.5 ? '-60%' : '-55%')};
   top: 10px;
   width: 100%;
   height: 50px;
   display: flex;
   flex-direction: column;
+  opacity: ${(props) => (props.time > 1.5 ? 1 : 0)};
+  transition: opacity 0.5s, left 0.5s;
 `;
 
-export const LeftSecond = styled.div`
+export const LeftSecond = styled.div<ContentBoxProps>`
   position: absolute;
   padding: 6px;
-  left: -60%;
+  left: ${(props) => (props.time > 2.5 ? '-60%' : '-55%')};
   top: 170px;
   width: 100%;
   height: 50px;
+  opacity: ${(props) => (props.time > 2.5 ? 1 : 0)};
+  transition: opacity 0.5s, left 0.5s;
 `;
 
-export const LeftThird = styled.div`
+export const LeftThird = styled.div<ContentBoxProps>`
   position: absolute;
   padding: 6px;
-  left: -60%;
+  left: ${(props) => (props.time > 3.5 ? '-60%' : '-55%')};
   top: 290px;
   width: 100%;
   height: 50px;
+  opacity: ${(props) => (props.time > 3.5 ? 1 : 0)};
+  transition: opacity 0.5s, left 0.5s;
 `;
 
-export const RightFirst = styled.div`
+export const RightFirst = styled.div<ContentBoxProps>`
   position: absolute;
   padding: 6px;
-  right: -60%;
+  right: ${(props) => (props.time > 2 ? '-60%' : '-55%')};
   top: 80px;
   width: 100%;
   height: 50px;
+  opacity: ${(props) => (props.time > 2 ? 1 : 0)};
+  transition: opacity 0.5s, right 0.5s;
 `;
 
-export const RightSecond = styled.div`
+export const RightSecond = styled.div<ContentBoxProps>`
   position: absolute;
   padding: 6px;
-  right: -60%;
+  right: ${(props) => (props.time > 3 ? '-60%' : '-55%')};
   top: 180px;
   width: 100%;
   height: 100px;
   background-color: white;
+  opacity: ${(props) => (props.time > 3 ? 1 : 0)};
+  transition: opacity 0.5s, right 0.5s;
 `;
 
-export const RightThird = styled.div`
+export const RightThird = styled.div<ContentBoxProps>`
   position: absolute;
   padding: 6px;
-  right: -110%;
+  right: ${(props) => (props.time > 4 ? '-110%' : '-105%')};
   top: 290px;
   width: 150%;
   height: 50px;
+  opacity: ${(props) => (props.time > 4 ? 1 : 0)};
+  transition: opacity 0.5s, right 0.5s;
 `;
