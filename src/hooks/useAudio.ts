@@ -12,7 +12,7 @@ const useAudio = (url: string): UseAudioType => {
   const audio = useRef<HTMLAudioElement>();
   const [link, setLink] = useState(url);
   const [playing, setPlaying] = useState(false);
-  const [muted, setMuted] = useState(false);
+  const [muted, setMuted] = useState(true);
 
   useEffect(() => {
     if (!audio.current) {

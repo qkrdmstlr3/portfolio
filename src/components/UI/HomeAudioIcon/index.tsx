@@ -1,28 +1,25 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react';
+import React, { useRef } from 'react';
 import useAudio from '../../../hooks/useAudio';
 import AudioOffIcon from '../Icon/AudioOff';
 import AudioOnIcon from '../Icon/AudioOn';
-import PlayIcon from '../Icon/Play';
 import * as Style from './styled';
 
 function HomeAudioIcon() {
-  // TODO: Icon을 타입으로 만들어서 관리하면 좀 더 간단해질수도?
-  // TODO: 음악추가(props로)
-  const { playing, muted, togglePlaying, toggleMute } = useAudio('');
+  const didMount = useRef(false);
+  const { muted, togglePlaying, toggleMute } = useAudio('/music/test.mp3');
 
   const clickIcon = () => {
-    if (playing) {
-      toggleMute();
-      return;
+    if (!didMount.current) {
+      togglePlaying();
+      didMount.current = true;
     }
-    togglePlaying();
+    toggleMute();
   };
 
   return (
     <Style.IconWrapper onClick={clickIcon}>
-      {!playing && <PlayIcon color="white" />}
-      {playing && (muted ? <AudioOffIcon color="white" /> : <AudioOnIcon color="white" />)}
+      {muted ? <AudioOffIcon color="white" /> : <AudioOnIcon color="white" />}
     </Style.IconWrapper>
   );
 }
