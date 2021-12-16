@@ -1,19 +1,25 @@
 import React from 'react';
 import * as Style from './styled';
 import useInterval from '../../../hooks/useInterval';
+import AudioIcon from '../../UI/AudioIcon';
 
 function ContactPage() {
   const { time } = useInterval({ delay: 0.5, clearTime: 5 });
 
   return (
     <Style.Container>
-      <Style.CDPlayer src="/cdplayer.svg" alt="cdplayer" />
+      <Style.CDPlayerWrapper>
+        <Style.CDPlayer src="/cdplayer.svg" alt="cdplayer" />
+        <Style.AudioIconWrapper>
+          <AudioIcon musicLink="/music/test.mp3" />
+        </Style.AudioIconWrapper>
+      </Style.CDPlayerWrapper>
       <Style.IntroduceWrapper>
         <Style.Code />
         <Style.LeftFirst time={time}>
           <Style.Content textAlign="right">재밌는 개발을 좋아하는</Style.Content>
           <Style.Content textAlign="right">예쁜 코드를 사랑하는</Style.Content>
-          <Style.Content textAlign="right">발전을 위해 노력하는</Style.Content>
+          <Style.Content textAlign="right">계속해서 진화하는</Style.Content>
         </Style.LeftFirst>
         <Style.LeftSecond time={time}>
           <Style.Content textAlign="right">기술스택</Style.Content>

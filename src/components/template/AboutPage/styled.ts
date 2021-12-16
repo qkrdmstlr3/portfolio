@@ -12,12 +12,24 @@ export const Container = styled.main`
   max-width: 30rem;
   margin: 0 auto;
   margin-top: 12rem;
+  user-select: none;
+`;
+
+export const CDPlayerWrapper = styled.div`
+  position: relative;
 `;
 
 export const CDPlayer = styled.img`
   display: block;
   border: 5px solid #ddd;
   border-radius: 50px;
+`;
+
+export const AudioIconWrapper = styled.div`
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
 `;
 
 export const IntroduceWrapper = styled.div`
