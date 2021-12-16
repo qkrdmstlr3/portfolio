@@ -20,3 +20,20 @@ export const portfolioList: PortfolioType[] = [
     authors: ['shellboy'],
   },
 ];
+
+export const skillList: string[] = [
+  'https://techstack-generator.vercel.app/js-icon.svg',
+  'https://techstack-generator.vercel.app/ts-icon.svg',
+  'https://techstack-generator.vercel.app/react-icon.svg',
+  'https://techstack-generator.vercel.app/redux-icon.svg',
+  'https://techstack-generator.vercel.app/gatsby-icon.svg',
+  'https://techstack-generator.vercel.app/sass-icon.svg',
+  'https://techstack-generator.vercel.app/webpack-icon.svg',
+  'https://techstack-generator.vercel.app/eslint-icon.svg',
+  'https://techstack-generator.vercel.app/prettier-icon.svg',
+  'https://techstack-generator.vercel.app/storybook-icon.svg',
+  'https://techstack-generator.vercel.app/jest-icon.svg',
+  'https://techstack-generator.vercel.app/testinglibrary-icon.svg',
+  'https://techstack-generator.vercel.app/restapi-icon.svg',
+  'https://techstack-generator.vercel.app/github-icon.svg',
+];

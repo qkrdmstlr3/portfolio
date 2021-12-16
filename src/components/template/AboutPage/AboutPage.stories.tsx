@@ -1,6 +1,7 @@
 import React from 'react';
 import AboutPageTemplate from '.';
 import Layout from '../../Layout';
+import { skillList } from '../../../constants';
 
 export default {
   title: 'Template/AboutPageTemplate',
@@ -9,6 +10,6 @@ export default {
 
 export const aboutPageTemplate = () => (
   <Layout uri="/about">
-    <AboutPageTemplate />
+    <AboutPageTemplate skillLinkList={skillList} />
   </Layout>
 );

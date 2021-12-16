@@ -136,7 +136,7 @@ export const LeftThird = styled.div<ContentBoxProps>`
   transition: opacity 0.5s, left 0.5s;
 
   ${mq('sm')} {
-    top: 360px;
+    top: 420px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -168,17 +168,20 @@ export const RightFirst = styled.div<ContentBoxProps>`
 export const RightSecond = styled.div<ContentBoxProps>`
   position: absolute;
   padding: 6px;
-  right: ${(props) => (props.time > 3 ? '-60%' : '-55%')};
+  right: ${(props) => (props.time > 3 ? '-95%' : '-90%')};
   top: 180px;
-  width: 100%;
-  height: 100px;
-  background-color: white;
+  width: 400px;
+  height: 110px;
+  background-color: rgba(255, 255, 255, 0.3);
   opacity: ${(props) => (props.time > 3 ? 1 : 0)};
   transition: opacity 0.5s, right 0.5s;
+  border-radius: 3px;
 
   ${mq('sm')} {
     top: 230px;
     left: 50%;
+    width: 270px;
+    height: 180px;
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
@@ -199,8 +202,22 @@ export const RightThird = styled.div<ContentBoxProps>`
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: 395px;
+    top: 450px;
     left: 50%;
     transform: translateX(-50%);
   }
 `;
+
+export const SkillList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+`;
+
+export const SkillItem = styled.li`
+  width: 50px;
+  height: 50px;
+`;
+
+export const SkillImage = styled.img``;

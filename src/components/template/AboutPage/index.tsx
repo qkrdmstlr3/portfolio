@@ -1,9 +1,14 @@
 import React from 'react';
+import { map, pipe, toArray } from '@fxts/core';
 import * as Style from './styled';
 import useInterval from '../../../hooks/useInterval';
 import AudioIcon from '../../UI/AudioIcon';
 
-function ContactPage() {
+interface ContactPageProps {
+  skillLinkList: string[];
+}
+
+function ContactPage({ skillLinkList }: ContactPageProps) {
   const { time } = useInterval({ delay: 0.5, clearTime: 5 });
 
   return (
@@ -34,7 +39,19 @@ function ContactPage() {
             입니다
           </Style.Content>
         </Style.RightFirst>
-        <Style.RightSecond time={time} />
+        <Style.RightSecond time={time}>
+          <Style.SkillList>
+            {pipe(
+              skillLinkList,
+              map((skillLink) => (
+                <Style.SkillItem>
+                  <Style.SkillImage src={skillLink} />
+                </Style.SkillItem>
+              )),
+              toArray
+            )}
+          </Style.SkillList>
+        </Style.RightSecond>
         <Style.RightThird time={time}>
           <Style.Content textAlign="left">네이버 부스트캠프 5기(20.08 ~ 12)</Style.Content>
           <Style.Content textAlign="left">SI Analytics 인턴(21.07 ~ 08)</Style.Content>
