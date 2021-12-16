@@ -5,9 +5,13 @@ import AudioOffIcon from '../Icon/AudioOff';
 import AudioOnIcon from '../Icon/AudioOn';
 import * as Style from './styled';
 
-function HomeAudioIcon() {
+interface HomeAudioIconProps {
+  musicLink: string;
+}
+
+function HomeAudioIcon({ musicLink }: HomeAudioIconProps) {
   const didMount = useRef(false);
-  const { muted, togglePlaying, toggleMute } = useAudio('/music/test.mp3');
+  const { muted, togglePlaying, toggleMute } = useAudio(musicLink);
 
   const clickIcon = () => {
     if (!didMount.current) {
