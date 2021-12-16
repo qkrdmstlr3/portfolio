@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import mq from '../../../style/mq';
 
 interface ContentBoxProps {
   time: number;
@@ -13,10 +14,20 @@ export const Container = styled.main`
   margin: 0 auto;
   margin-top: 12rem;
   user-select: none;
+  overflow: hidden;
+
+  ${mq('sm')} {
+    margin-top: 8rem;
+  }
 `;
 
 export const CDPlayerWrapper = styled.div`
   position: relative;
+
+  ${mq('sm')} {
+    width: 18rem;
+    margin: 0 auto;
+  }
 `;
 
 export const CDPlayer = styled.img`
@@ -44,6 +55,10 @@ export const Code = styled.div`
   width: 12px;
   height: 100%;
   background-color: #f0f0f0;
+
+  ${mq('sm')} {
+    display: none;
+  }
 `;
 
 export const Content = styled.span<ContentProps>`
@@ -54,11 +69,20 @@ export const Content = styled.span<ContentProps>`
   text-align: ${(props) => props.textAlign};
   color: white;
   letter-spacing: 2px;
+
+  ${mq('sm')} {
+    width: fit-content;
+    font-size: 2rem;
+  }
 `;
 
 export const Emphasize = styled.strong`
   margin-right: 10px;
   font-size: 3.6rem;
+
+  ${mq('sm')} {
+    margin: 0 5px;
+  }
 `;
 
 export const LeftFirst = styled.div<ContentBoxProps>`
@@ -72,6 +96,14 @@ export const LeftFirst = styled.div<ContentBoxProps>`
   flex-direction: column;
   opacity: ${(props) => (props.time > 1.5 ? 1 : 0)};
   transition: opacity 0.5s, left 0.5s;
+
+  ${mq('sm')} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 export const LeftSecond = styled.div<ContentBoxProps>`
@@ -83,6 +115,15 @@ export const LeftSecond = styled.div<ContentBoxProps>`
   height: 50px;
   opacity: ${(props) => (props.time > 2.5 ? 1 : 0)};
   transition: opacity 0.5s, left 0.5s;
+
+  ${mq('sm')} {
+    top: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+  }
 `;
 
 export const LeftThird = styled.div<ContentBoxProps>`
@@ -94,6 +135,15 @@ export const LeftThird = styled.div<ContentBoxProps>`
   height: 50px;
   opacity: ${(props) => (props.time > 3.5 ? 1 : 0)};
   transition: opacity 0.5s, left 0.5s;
+
+  ${mq('sm')} {
+    top: 360px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+  }
 `;
 
 export const RightFirst = styled.div<ContentBoxProps>`
@@ -105,6 +155,15 @@ export const RightFirst = styled.div<ContentBoxProps>`
   height: 50px;
   opacity: ${(props) => (props.time > 2 ? 1 : 0)};
   transition: opacity 0.5s, right 0.5s;
+
+  ${mq('sm')} {
+    top: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 export const RightSecond = styled.div<ContentBoxProps>`
@@ -117,6 +176,14 @@ export const RightSecond = styled.div<ContentBoxProps>`
   background-color: white;
   opacity: ${(props) => (props.time > 3 ? 1 : 0)};
   transition: opacity 0.5s, right 0.5s;
+
+  ${mq('sm')} {
+    top: 230px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const RightThird = styled.div<ContentBoxProps>`
@@ -128,4 +195,13 @@ export const RightThird = styled.div<ContentBoxProps>`
   height: 50px;
   opacity: ${(props) => (props.time > 4 ? 1 : 0)};
   transition: opacity 0.5s, right 0.5s;
+
+  ${mq('sm')} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 395px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;

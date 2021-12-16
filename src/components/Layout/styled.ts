@@ -30,6 +30,10 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: flex-end;
   width: 800px;
+
+  ${mq('md')} {
+    align-items: center;
+  }
 `;
 
 export const MenuItem = styled.span`
