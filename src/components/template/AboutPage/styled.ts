@@ -14,7 +14,6 @@ export const Container = styled.main`
   margin: 0 auto;
   margin-top: 12rem;
   user-select: none;
-  overflow: hidden;
 
   ${mq('sm')} {
     margin-top: 8rem;

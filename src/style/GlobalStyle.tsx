@@ -1,5 +1,6 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
+import mq from './mq';
 
 interface GlobalStyleProps {
   backgroundColor: string;
@@ -20,6 +21,14 @@ function GlobalStyle({ backgroundColor }: GlobalStyleProps): React.ReactElement 
           height: auto;
           font-size: 62.5%;
           background-color: ${backgroundColor};
+
+          ${mq('sm')} {
+            & > div {
+              overflow: hidden;
+            }
+          }
+        }
+        body {
         }
         a {
           text-decoration: none;
