@@ -5,10 +5,6 @@ interface PlayingProps {
   isPlaying: boolean;
 }
 
-interface LpCoverProps {
-  gifLink: string;
-}
-
 interface LpProps {
   imageLink: string;
 }
@@ -44,24 +40,23 @@ export const LpWrapper = styled.div<PlayingProps>`
   user-select: none;
 `;
 
-export const LpCover = styled.div<PlayingProps & LpCoverProps & LpProps>`
+export const LpCover = styled.div`
   width: 45rem;
   height: 45rem;
   position: absolute;
   right: 0;
   background-color: white;
+`;
 
-  &:before {
-    background-image: url(${(props) => (props.isPlaying ? props.gifLink : props.imageLink)});
-    top: 0;
-    left: 0;
-    position: absolute;
-    background-size: 100%;
-    opacity: ${(props) => (props.isPlaying ? 1 : 0.1)};
-    content: '';
-    width: 100%;
-    height: 100%;
-  }
+export const LpCoverImage = styled.img<PlayingProps>`
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-size: contain;
+  opacity: ${(props) => (props.isPlaying ? 1 : 0.1)};
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
 `;
 
 // https://codepen.io/thebabydino/pen/HjJlL
@@ -171,13 +166,14 @@ export const ExplanationList = styled.ul`
 `;
 
 export const ExplanationItem = styled.li`
+  margin: 0.5rem 0;
   font-size: 1.5rem;
 `;
 
 export const AuthorList = styled.ul`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: calc(100% - 2rem);
   position: absolute;
   bottom: 1rem;
 `;

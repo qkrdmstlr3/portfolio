@@ -52,7 +52,8 @@ function PortfolioPage({ portfolioList }: PortfolioPageType) {
       <Style.ProjectTitle>{portfolio.title.toUpperCase()}</Style.ProjectTitle>
       <Style.LpWrapper isPlaying={playing}>
         <Style.Lp isPlaying={playing} imageLink={portfolio.imageLink} />
-        <Style.LpCover isPlaying={playing} gifLink={portfolio.gifLink} imageLink={portfolio.imageLink}>
+        <Style.LpCover>
+          <Style.LpCoverImage src={playing ? portfolio.gifLink : portfolio.imageLink} isPlaying={playing} />
           {!playing && (
             <Style.LpInfo>
               <Style.Date>
