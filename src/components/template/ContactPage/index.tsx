@@ -22,10 +22,10 @@ interface ContactPageProps {
 function ContactPage({ infoList }: ContactPageProps) {
   const didMount = useRef(false);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const { playing, changeMusic, togglePlaying } = useAudio(infoList[selectedIndex].musicLink);
+  const { playing, changeMusicWithStart, togglePlaying } = useAudio(infoList[selectedIndex].musicLink);
 
   useEffect(() => {
-    if (didMount.current) changeMusic(infoList[selectedIndex].musicLink);
+    if (didMount.current) changeMusicWithStart(infoList[selectedIndex].musicLink);
     else didMount.current = true;
   }, [selectedIndex]);
 

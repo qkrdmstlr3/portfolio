@@ -3,30 +3,19 @@ import { useEffect, useRef, useState } from 'react';
 interface UseAudioType {
   playing: boolean;
   muted: boolean;
-  changeMusic: (url: string) => void;
+  changeMusicWithStart: (link: string) => void;
+  changeMusicWithStop: (link: string) => void;
   togglePlaying: () => void;
   toggleMute: () => void;
 }
 
 const useAudio = (url: string): UseAudioType => {
   const audio = useRef<HTMLAudioElement>();
-  const [link, setLink] = useState(url);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
 
   useEffect(() => {
-    if (!audio.current) {
-      audio.current = new Audio(link);
-      return;
-    }
-    audio.current.pause();
-    audio.current = new Audio(link);
-    audio.current.play();
-    setPlaying(true);
-  }, [link]);
-
-  useEffect(() => {
-    if (!audio) return;
+    if (!audio.current) return;
     if (playing) {
       audio.current.play();
       return;
@@ -35,12 +24,12 @@ const useAudio = (url: string): UseAudioType => {
   }, [playing]);
 
   useEffect(() => {
-    if (!audio) return;
+    if (!audio.current) return;
     audio.current.muted = muted;
   }, [muted]);
 
   useEffect(() => {
-    audio.current.addEventListener('ended', () => setPlaying(false));
+    if (audio.current) audio.current.addEventListener('ended', () => setPlaying(false));
     return () => audio.current.removeEventListener('ended', () => setPlaying(false));
   }, [audio]);
 
@@ -51,9 +40,22 @@ const useAudio = (url: string): UseAudioType => {
 
   const togglePlaying = () => setPlaying(!playing);
   const toggleMute = () => setMuted(!muted);
-  const changeMusic = (url: string) => setLink(url);
+  const changeMusicWithStart = (link: string) => {
+    if (!audio.current) return;
+    audio.current.pause();
+    audio.current = new Audio(link);
+    audio.current.play();
+    setPlaying(true);
+  };
 
-  return { playing, changeMusic, muted, togglePlaying, toggleMute };
+  const changeMusicWithStop = (link: string) => {
+    if (!audio.current) return;
+    audio.current.pause();
+    audio.current = new Audio(link);
+    setPlaying(false);
+  };
+
+  return { playing, changeMusicWithStart, changeMusicWithStop, muted, togglePlaying, toggleMute };
 };
 
 export default useAudio;
