@@ -1,6 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { map, pipe, filter, reduce, toArray } from '@fxts/core';
+import useAudio from '../../../hooks/useAudio';
 import PlayIcon from '../../UI/Icon/Play';
+import PauseIcon from '../../UI/Icon/Pause';
 import PrevIcon from '../../UI/Icon/Prev';
 import NextIcon from '../../UI/Icon/Next';
 import LinkIcon from '../../UI/Icon/Link';
@@ -12,6 +14,7 @@ export interface PortfolioType {
   imageLink: string;
   githubLink: string;
   deployLink?: string;
+  musicLink: string;
   techs: string[];
   explanations: string[];
   startDate: Date;
@@ -24,12 +27,16 @@ interface PortfolioPageType {
 }
 
 function PortfolioPage({ portfolioList }: PortfolioPageType) {
-  const [isPlaying, setIsPlaying] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const portfolio = useMemo(() => portfolioList[selectedIndex], [selectedIndex]);
+  const { playing, togglePlaying, changeMusicWithStop } = useAudio(portfolio.musicLink);
+
+  useEffect(() => {
+    changeMusicWithStop(portfolio.musicLink);
+  }, [portfolio]);
 
   const changePlayState = () => {
-    setIsPlaying(!isPlaying);
+    togglePlaying();
   };
 
   const changeNextMusic = () => {
@@ -43,10 +50,10 @@ function PortfolioPage({ portfolioList }: PortfolioPageType) {
   return (
     <Style.Container>
       <Style.ProjectTitle>{portfolio.title.toUpperCase()}</Style.ProjectTitle>
-      <Style.LpWrapper isPlaying={isPlaying}>
-        <Style.Lp isPlaying={isPlaying} imageLink={portfolio.imageLink} />
-        <Style.LpCover isPlaying={isPlaying} gifLink={portfolio.gifLink} imageLink={portfolio.imageLink}>
-          {!isPlaying && (
+      <Style.LpWrapper isPlaying={playing}>
+        <Style.Lp isPlaying={playing} imageLink={portfolio.imageLink} />
+        <Style.LpCover isPlaying={playing} gifLink={portfolio.gifLink} imageLink={portfolio.imageLink}>
+          {!playing && (
             <Style.LpInfo>
               <Style.Date>
                 {pipe(
@@ -73,21 +80,21 @@ function PortfolioPage({ portfolioList }: PortfolioPageType) {
               <Style.TechList>
                 {pipe(
                   portfolio.techs,
-                  map((tech) => <Style.TechItem>{tech}</Style.TechItem>),
+                  map((tech) => <Style.TechItem key={tech}>{tech}</Style.TechItem>),
                   toArray
                 )}
               </Style.TechList>
               <Style.ExplanationList>
                 {pipe(
                   portfolio.explanations,
-                  map((exp) => <Style.ExplanationItem>{exp}</Style.ExplanationItem>),
+                  map((exp) => <Style.ExplanationItem key={exp}>{exp}</Style.ExplanationItem>),
                   toArray
                 )}
               </Style.ExplanationList>
               <Style.AuthorList>
                 {pipe(
                   portfolio.authors,
-                  map((exp) => <Style.AuthorItem>{exp}</Style.AuthorItem>),
+                  map((exp) => <Style.AuthorItem key={exp}>{exp}</Style.AuthorItem>),
                   toArray
                 )}
               </Style.AuthorList>
@@ -100,7 +107,7 @@ function PortfolioPage({ portfolioList }: PortfolioPageType) {
           <PrevIcon color="white" />
         </Style.ControlIcon>
         <Style.ControlIcon onClick={changePlayState}>
-          <PlayIcon color="white" />
+          {playing ? <PauseIcon color="white" /> : <PlayIcon color="white" />}
         </Style.ControlIcon>
         <Style.ControlIcon onClick={changeNextMusic}>
           <NextIcon color="white" />
