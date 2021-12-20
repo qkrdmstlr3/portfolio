@@ -37,6 +37,19 @@ export const portfolioList: PortfolioType[] = [
     startDate: new Date('2020-10-18'),
     authors: ['shellboy', 'Eunsol', 'yyjjjj', 'gitgitWi', 'GodDrinkTeJAVA'],
   },
+  {
+    title: 'techstack-generator',
+    gifLink: '/portfolio/techstack.gif',
+    imageLink: '/portfolio/techstack.png',
+    githubLink: 'https://github.com/qkrdmstlr3/techstack-generator',
+    deployLink: 'https://techstack-generator.vercel.app/',
+    musicLink: '/music/test3.mp3',
+    techs: ['TS', 'React', 'Gatsby', 'emotionJS'],
+    explanations: ['동적인 기술 아이콘으로 차별화된 README 꾸미기', '공개된 svg아이콘에 직접 애니메이션 부여'],
+    startDate: new Date('2021-10-08'),
+    endDate: new Date('2021-12-05'),
+    authors: ['shellboy'],
+  },
 ];
 
 export const skillList: string[] = [
