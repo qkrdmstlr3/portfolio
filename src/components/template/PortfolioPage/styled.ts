@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
+import mq from '../../../style/mq';
 
 interface PlayingProps {
   isPlaying: boolean;
@@ -23,12 +24,21 @@ export const Container = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  ${mq('sm')} {
+    height: auto;
+    margin-top: 8rem;
+  }
 `;
 
 export const ProjectTitle = styled.h1`
   font-size: 3.6rem;
   color: white;
   user-select: none;
+
+  ${mq('sm')} {
+    font-size: 2.4rem;
+  }
 `;
 
 export const LpWrapper = styled.div<PlayingProps>`
@@ -38,6 +48,12 @@ export const LpWrapper = styled.div<PlayingProps>`
   position: relative;
   transition: width 1.5s;
   user-select: none;
+
+  ${mq('sm')} {
+    width: 30rem;
+    height: 30rem;
+    margin-top: 1rem;
+  }
 `;
 
 export const LpCover = styled.div`
@@ -94,12 +110,21 @@ export const ControlWrapper = styled.div`
   display: flex;
   width: 45rem;
   justify-content: space-between;
+
+  ${mq('sm')} {
+    width: 30rem;
+  }
 `;
 
 export const ControlIcon = styled.div`
   width: 6rem;
   height: 6rem;
   cursor: pointer;
+
+  ${mq('sm')} {
+    width: 4rem;
+    height: 4rem;
+  }
 `;
 
 export const LpInfo = styled.div`
@@ -115,6 +140,10 @@ export const Date = styled.div`
   width: 100%;
   text-align: right;
   font-size: 1.5rem;
+
+  ${mq('sm')} {
+    font-size: 1.3rem;
+  }
 `;
 
 export const TechList = styled.ul`
@@ -130,6 +159,11 @@ export const TechItem = styled.li`
   color: white;
   border-radius: 0.5rem;
   font-size: 1.3rem;
+
+  ${mq('sm')} {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
 `;
 
 export const LinkList = styled.div`
@@ -149,10 +183,19 @@ export const LinkIcon = styled.div`
   width: 2rem;
   height: 2rem;
   margin-right: 0.5rem;
+
+  ${mq('sm')} {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 `;
 
 export const LinkText = styled.span`
   font-size: 1.5rem;
+
+  ${mq('sm')} {
+    font-size: 1.3rem;
+  }
 `;
 
 export const ExplanationList = styled.ul`
@@ -168,6 +211,10 @@ export const ExplanationList = styled.ul`
 export const ExplanationItem = styled.li`
   margin: 0.5rem 0;
   font-size: 1.5rem;
+
+  ${mq('sm')} {
+    font-size: 1.3rem;
+  }
 `;
 
 export const AuthorList = styled.ul`
