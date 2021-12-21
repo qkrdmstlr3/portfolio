@@ -62,6 +62,11 @@ export const LpCover = styled.div`
   position: absolute;
   right: 0;
   background-color: white;
+
+  ${mq('sm')} {
+    width: 30rem;
+    height: 30rem;
+  }
 `;
 
 export const LpCoverImage = styled.img<PlayingProps>`
@@ -103,6 +108,11 @@ export const Lp = styled.div<PlayingProps & LpProps>`
     content: '';
     background-image: url(${(props) => props.imageLink});
     background-size: cover;
+  }
+
+  ${mq('sm')} {
+    width: 30rem;
+    height: 30rem;
   }
 `;
 

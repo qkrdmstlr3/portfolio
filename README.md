@@ -1,5 +1,7 @@
 # 🚀 SHELLBOY PORTFOLIO
 
+## 현재 🚧 공사중 🚧
+
 ## 사용 기술
 
 <div align="center">
