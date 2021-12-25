@@ -8,21 +8,21 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        icon: 'static/music.svg',
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-manifest',
+    //   options: {
+    //     icon: 'static/music.svg',
+    //   },
+    // },
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-plugin-layout',
-      options: {
-        component: require.resolve('./src/components/Layout/index.tsx'),
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-layout',
+    //   options: {
+    //     component: require.resolve('./src/components/Layout/index.tsx'),
+    //   },
+    // },
     // {
     //   resolve: 'gatsby-source-filesystem',
     //   options: {
