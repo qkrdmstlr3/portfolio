@@ -1,12 +1,7 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
-import mq from './mq';
 
-interface GlobalStyleProps {
-  backgroundColor: string;
-}
-
-function GlobalStyle({ backgroundColor }: GlobalStyleProps): React.ReactElement {
+function GlobalStyle(): React.ReactElement {
   return (
     <Global
       styles={css`
@@ -18,15 +13,7 @@ function GlobalStyle({ backgroundColor }: GlobalStyleProps): React.ReactElement 
         }
         html,
         body {
-          height: auto;
           font-size: 62.5%;
-          background-color: ${backgroundColor};
-
-          ${mq('sm')} {
-            & > div {
-              overflow: hidden;
-            }
-          }
         }
         body {
         }

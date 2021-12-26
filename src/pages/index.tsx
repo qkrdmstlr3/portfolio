@@ -1,7 +1,14 @@
 import React from 'react';
+import MainTemplate from '../components/templates/main';
+import GlobalStyle from '../style/GlobalStyle';
 
 function IndexPage() {
-  return <div>hello</div>;
+  return (
+    <>
+      <GlobalStyle />
+      <MainTemplate />
+    </>
+  );
 }
 
 export default IndexPage;
