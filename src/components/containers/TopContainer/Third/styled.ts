@@ -21,7 +21,7 @@ export const Top = styled.div<ScreenProps>`
   cursor: pointer;
   color: ${color.white};
   background-color: ${color.red};
-  border: 1px solid ${color.black};
+  border: 2px solid ${color.black};
   ${(props) => topSelector[props.screen]};
 `;
 
@@ -31,6 +31,6 @@ export const Title = styled.h2`
 
 export const Bottom = styled.div<ScreenProps>`
   transition: all 2s;
-  border: 1px solid ${color.black};
+  border: 2px solid ${color.black};
   ${(props) => bottomSelector[props.screen]};
 `;

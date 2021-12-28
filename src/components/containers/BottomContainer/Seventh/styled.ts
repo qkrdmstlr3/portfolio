@@ -14,7 +14,7 @@ export const Top = styled.div`
   align-items: center;
 
   cursor: pointer;
-  border: 1px solid black;
+  border: 2px solid black;
   background-color: ${color.red};
 `;
 
@@ -26,5 +26,5 @@ export const Title = styled.h2`
 export const Bottom = styled.div`
   width: 100%;
   height: 50%;
-  border: 1px solid black;
+  border: 2px solid black;
 `;

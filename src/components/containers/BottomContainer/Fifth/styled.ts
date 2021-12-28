@@ -20,7 +20,7 @@ export const Left = styled.div<ScreenProps>`
 
   cursor: pointer;
   overflow: hidden;
-  border: 1px solid black;
+  border: 2px solid black;
   background-color: ${color.yellow};
   transition: all 2s;
   ${(props) => leftSelector[props.screen]};
@@ -39,17 +39,17 @@ export const Middle = styled.div<ScreenProps>`
 export const MiddleTop = styled.div`
   width: 100%;
   height: 50%;
-  border: 1px solid black;
+  border: 2px solid black;
 `;
 
 export const MiddleBottom = styled.div`
   width: 100%;
   height: 50%;
-  border: 1px solid black;
+  border: 2px solid black;
 `;
 
 export const Right = styled.div<ScreenProps>`
-  border: 1px solid black;
+  border: 2px solid black;
   transition: all 2s;
   ${(props) => rightSelector[props.screen]};
 `;

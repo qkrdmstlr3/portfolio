@@ -14,7 +14,7 @@ export const Container = styled.div<ContainerProps>`
   align-items: center;
 
   transition: all 2s;
-  border: 1px solid ${color.black};
+  border: 2px solid ${color.black};
   background-color: ${color.blue};
   ${(props) => screenSelector[props.screen]};
 `;

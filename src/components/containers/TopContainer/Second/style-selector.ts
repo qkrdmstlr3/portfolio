@@ -20,6 +20,6 @@ export const screenSelector: { [screen in ScreenType]: SerializedStyles } = {
   `,
   experience: css`
     width: 100%;
-    height: 66%;
+    height: 78%;
   `,
 };
