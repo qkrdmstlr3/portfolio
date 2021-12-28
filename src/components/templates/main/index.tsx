@@ -7,11 +7,15 @@ import * as Style from './styled';
 export type ScreenType = 'main' | 'portfolio' | 'skill' | 'contact' | 'experience';
 
 function Main() {
-  const [screen] = useState<ScreenType>('main');
+  const [screen, setScreen] = useState<ScreenType>('main');
+
+  const changeScreen = (screen: ScreenType) => {
+    setScreen(screen);
+  };
 
   return (
     <Style.Container>
-      <TopContainer />
+      <TopContainer screen={screen} changeScreen={changeScreen} />
       <MiddleContainer screen={screen} />
       <BottomContainer />
     </Style.Container>
