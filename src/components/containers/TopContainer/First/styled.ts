@@ -15,11 +15,11 @@ export const Container = styled.div<ContainerProps>`
 export const Left = styled.div`
   width: 68%;
   height: 100%;
-  border: 1px solid black;
+  border: 2px solid black;
 `;
 
 export const Right = styled.div`
   width: 37%;
   height: 100%;
-  border: 1px solid black;
+  border: 2px solid black;
 `;

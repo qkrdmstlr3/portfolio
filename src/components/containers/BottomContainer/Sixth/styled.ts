@@ -14,32 +14,32 @@ export const Container = styled.div`
 `;
 
 export const BlackBox = styled.div<ScreenProps>`
-  border: 1px solid black;
+  border: 2px solid black;
   transition: all 2s;
   background-color: ${color.black};
   ${(props) => blackBoxSelector[props.screen]};
 `;
 
 export const FirstBox = styled.div<ScreenProps>`
-  border: 1px solid black;
+  border: 2px solid black;
   transition: all 2s;
   ${(props) => frontBoxSelector[props.screen]};
 `;
 
 export const SecondBox = styled.div<ScreenProps>`
-  border: 1px solid black;
+  border: 2px solid black;
   transition: all 2s;
   ${(props) => frontBoxSelector[props.screen]};
 `;
 
 export const ThirdBox = styled.div<ScreenProps>`
-  border: 1px solid black;
+  border: 2px solid black;
   transition: all 2s;
   ${(props) => rearBoxSelector[props.screen]};
 `;
 
 export const FourthBox = styled.div<ScreenProps>`
-  border: 1px solid black;
+  border: 2px solid black;
   transition: all 2s;
   ${(props) => rearBoxSelector[props.screen]};
 `;
