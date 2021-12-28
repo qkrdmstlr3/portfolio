@@ -22,6 +22,7 @@ export const Left = styled.div<ScreenProps>`
   overflow: hidden;
   border: 1px solid black;
   background-color: ${color.yellow};
+  transition: all 2s;
   ${(props) => leftSelector[props.screen]};
 `;
 
@@ -31,6 +32,7 @@ export const Title = styled.h2`
 `;
 
 export const Middle = styled.div<ScreenProps>`
+  transition: all 2s;
   ${(props) => middleSelector[props.screen]};
 `;
 
@@ -48,5 +50,6 @@ export const MiddleBottom = styled.div`
 
 export const Right = styled.div<ScreenProps>`
   border: 1px solid black;
+  transition: all 2s;
   ${(props) => rightSelector[props.screen]};
 `;
