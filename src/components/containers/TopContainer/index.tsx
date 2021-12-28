@@ -3,10 +3,16 @@ import First from './First';
 import Second from './Second';
 import * as Style from './styled';
 import Third from './Third';
+import { ScreenType } from '../../templates/main/index';
 
-function TopContainer() {
+interface TopContainerProps {
+  screen: ScreenType;
+  changeScreen: (screen: ScreenType) => void;
+}
+
+function TopContainer({ screen, changeScreen }: TopContainerProps) {
   return (
-    <Style.Container>
+    <Style.Container screen={screen}>
       <Style.Left>
         <First />
         <Second />
