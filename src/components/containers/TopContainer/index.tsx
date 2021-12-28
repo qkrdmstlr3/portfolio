@@ -15,7 +15,7 @@ function TopContainer({ screen, changeScreen }: TopContainerProps) {
     <Style.Container screen={screen}>
       <Style.Left>
         <First screen={screen} />
-        <Second changeScreen={changeScreen} />
+        <Second screen={screen} changeScreen={changeScreen} />
       </Style.Left>
       <Style.Right>
         <Third changeScreen={changeScreen} />
