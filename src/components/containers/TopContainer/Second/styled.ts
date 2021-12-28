@@ -1,10 +1,16 @@
 import styled from '@emotion/styled';
 import color from '../../../../style/color';
+import { ScreenType } from '../../../templates/main';
+import { screenSelector } from './style-selector';
 
-export const Container = styled.div`
-  width: 100%;
-  height: 66%;
+interface ContainerProps {
+  screen: ScreenType;
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
+  transition: all 2s;
+  ${(props) => screenSelector[props.screen]};
 `;
 
 export const Left = styled.div`

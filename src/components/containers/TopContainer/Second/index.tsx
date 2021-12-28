@@ -3,12 +3,13 @@ import * as Style from './styled';
 import { ScreenType } from '../../../templates/main/index';
 
 interface SecondProps {
+  screen: ScreenType;
   changeScreen: (screen: ScreenType) => void;
 }
 
-function Second({ changeScreen }: SecondProps) {
+function Second({ screen, changeScreen }: SecondProps) {
   return (
-    <Style.Container>
+    <Style.Container screen={screen}>
       <Style.Left>
         <Style.LeftTop onClick={() => changeScreen('contact')}>
           <Style.Title>contact</Style.Title>
