@@ -18,7 +18,7 @@ function BottomContainer({ screen, changeScreen }: BottomContainerProps) {
       </Style.Top>
       <Style.Bottom>
         <Sixth />
-        <Seventh />
+        <Seventh changeScreen={changeScreen} />
       </Style.Bottom>
     </Style.Container>
   );
