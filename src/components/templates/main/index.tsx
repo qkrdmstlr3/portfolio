@@ -1,21 +1,15 @@
 import React from 'react';
-import Contact from '../../containers/Contact';
-import ExperienceSkill from '../../containers/ExperienceSkill';
-import Introduce from '../../containers/Introduce';
-import PortfolioExplanation from '../../containers/PortfolioExplanation';
-import PortfolioImage from '../../containers/PortfolioImage';
-import PortfolioTitle from '../../containers/PortfolioTitle';
+import TopContainer from '../../containers/TopContainer';
+import MiddleContainer from '../../containers/MiddleContainer';
+import BottomContainer from '../../containers/BottomContainer';
 import * as Style from './styled';
 
 function Main() {
   return (
     <Style.Container>
-      <Contact />
-      <ExperienceSkill />
-      <Introduce />
-      <PortfolioExplanation />
-      <PortfolioImage />
-      <PortfolioTitle />
+      <TopContainer />
+      <MiddleContainer />
+      <BottomContainer />
     </Style.Container>
   );
 }
