@@ -3,16 +3,17 @@ import * as Style from './styled';
 import { ScreenType } from '../../../templates/main/index';
 
 interface ThirdProps {
+  screen: ScreenType;
   changeScreen: (screen: ScreenType) => void;
 }
 
-function Third({ changeScreen }: ThirdProps) {
+function Third({ screen, changeScreen }: ThirdProps) {
   return (
     <Style.Container>
-      <Style.Top onClick={() => changeScreen('portfolio')}>
+      <Style.Top screen={screen} onClick={() => changeScreen('portfolio')}>
         <Style.Title>portfolio</Style.Title>
       </Style.Top>
-      <Style.Bottom />
+      <Style.Bottom screen={screen} />
     </Style.Container>
   );
 }
