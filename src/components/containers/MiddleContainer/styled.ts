@@ -13,7 +13,7 @@ export const Container = styled.div<ContainerProps>`
   justify-content: center;
   align-items: center;
 
-  transition: all 2s;
+  transition: all 2s linear;
   border: 2px solid ${color.black};
   background-color: ${color.blue};
   ${(props) => screenSelector[props.screen]};
