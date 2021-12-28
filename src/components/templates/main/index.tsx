@@ -9,8 +9,8 @@ export type ScreenType = 'main' | 'portfolio' | 'skill' | 'contact' | 'experienc
 function Main() {
   const [screen, setScreen] = useState<ScreenType>('main');
 
-  const changeScreen = (screen: ScreenType) => {
-    setScreen(screen);
+  const changeScreen = (changedScreen: ScreenType) => {
+    setScreen(screen === changedScreen ? 'main' : changedScreen);
   };
 
   return (
