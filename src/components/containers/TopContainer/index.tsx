@@ -14,7 +14,7 @@ function TopContainer({ screen, changeScreen }: TopContainerProps) {
   return (
     <Style.Container screen={screen}>
       <Style.Left>
-        <First />
+        <First screen={screen} />
         <Second />
       </Style.Left>
       <Style.Right>

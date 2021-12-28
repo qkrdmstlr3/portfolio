@@ -1,7 +1,24 @@
 import styled from '@emotion/styled';
+import { ScreenType } from '../../../templates/main/index';
+import { screenSelector } from './style-selector';
 
-export const Container = styled.div`
+interface ContainerProps {
+  screen: ScreenType;
+}
+
+export const Container = styled.div<ContainerProps>`
+  display: flex;
+  ${(props) => screenSelector[props.screen]};
+`;
+
+export const Left = styled.div`
+  width: 70%;
+  height: 100%;
   border: 1px solid black;
-  width: 100%;
-  height: 34%;
+`;
+
+export const Right = styled.div`
+  width: 31%;
+  height: 100%;
+  border: 1px solid black;
 `;
