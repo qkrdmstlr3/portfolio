@@ -17,7 +17,7 @@ function Main() {
     <Style.Container>
       <TopContainer screen={screen} changeScreen={changeScreen} />
       <MiddleContainer screen={screen} />
-      <BottomContainer />
+      <BottomContainer screen={screen} changeScreen={changeScreen} />
     </Style.Container>
   );
 }
