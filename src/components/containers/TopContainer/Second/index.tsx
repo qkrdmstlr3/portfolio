@@ -10,7 +10,7 @@ function Second({ changeScreen }: SecondProps) {
   return (
     <Style.Container>
       <Style.Left>
-        <Style.LeftTop>
+        <Style.LeftTop onClick={() => changeScreen('contact')}>
           <Style.Title>contact</Style.Title>
         </Style.LeftTop>
         <Style.LeftBottom />
