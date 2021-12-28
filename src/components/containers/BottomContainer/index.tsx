@@ -12,11 +12,11 @@ interface BottomContainerProps {
 
 function BottomContainer({ screen, changeScreen }: BottomContainerProps) {
   return (
-    <Style.Container>
-      <Style.Top>
+    <Style.Container screen={screen}>
+      <Style.Top screen={screen}>
         <Fifth screen={screen} changeScreen={changeScreen} />
       </Style.Top>
-      <Style.Bottom>
+      <Style.Bottom screen={screen}>
         <Sixth screen={screen} />
         <Seventh changeScreen={changeScreen} />
       </Style.Bottom>
