@@ -7,17 +7,17 @@ interface ScreenProps {
 }
 
 export const Container = styled.div<ScreenProps>`
-  transition: all 2s;
+  transition: all 2s linear;
   ${(props) => screenSelector[props.screen]};
 `;
 
 export const Top = styled.div<ScreenProps>`
-  transition: all 2s;
+  transition: all 2s linear;
   ${(props) => topSelector[props.screen]};
 `;
 
 export const Bottom = styled.div<ScreenProps>`
   display: flex;
-  transition: all 2s;
+  transition: all 2s linear;
   ${(props) => bottomSelector[props.screen]};
 `;

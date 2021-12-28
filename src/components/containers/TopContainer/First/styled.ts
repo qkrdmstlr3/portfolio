@@ -8,7 +8,7 @@ interface ContainerProps {
 
 export const Container = styled.div<ContainerProps>`
   display: flex;
-  transition: all 2s;
+  transition: all 2s linear;
   ${(props) => screenSelector[props.screen]};
 `;
 
