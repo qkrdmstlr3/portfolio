@@ -17,7 +17,7 @@ function BottomContainer({ screen, changeScreen }: BottomContainerProps) {
         <Fifth screen={screen} changeScreen={changeScreen} />
       </Style.Top>
       <Style.Bottom>
-        <Sixth />
+        <Sixth screen={screen} />
         <Seventh changeScreen={changeScreen} />
       </Style.Bottom>
     </Style.Container>
