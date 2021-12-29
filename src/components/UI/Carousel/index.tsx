@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import * as Style from './styled';
 
 interface CarouselProps {
-  items: string[];
+  items: any[];
   Component: any;
 }
 
