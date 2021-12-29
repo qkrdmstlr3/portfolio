@@ -21,7 +21,7 @@ function Main() {
   return (
     <Style.Container>
       <TopContainer changing={changing} screen={screen} changeScreen={changeScreen} />
-      <MiddleContainer screen={screen} />
+      <MiddleContainer changing={changing} screen={screen} />
       <BottomContainer changing={changing} screen={screen} changeScreen={changeScreen} />
     </Style.Container>
   );

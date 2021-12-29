@@ -3,7 +3,7 @@ import { ScreenType } from '../../../templates/main';
 import * as Style from './styled';
 import SkillBox from '../../../UI/SkillBox';
 import Carousel from '../../../UI/Carousel/index';
-import ExplanationBox from '../../../UI/ExplanationBox';
+import CenterBox from '../../../UI/CenterBox';
 import { experiences } from '../../../../constants';
 
 interface FifthProps {
@@ -33,13 +33,13 @@ function Fifth({ screen, changing, changeScreen }: FifthProps) {
         <Style.MiddleTop>
           {!changing && screen === 'skill' && <SkillBox skills={middleTopSkills} align="row" />}
           {!changing && screen === 'experience' && (
-            <Carousel items={experiences.map((exp) => exp.firstExplanation)} Component={ExplanationBox} />
+            <Carousel items={experiences.map((exp) => exp.firstExplanation)} Component={CenterBox} />
           )}
         </Style.MiddleTop>
         <Style.MiddleBottom>
           {!changing && screen === 'skill' && <SkillBox skills={middleBottomSkills} align="row" />}
           {!changing && screen === 'experience' && (
-            <Carousel items={experiences.map((exp) => exp.secondExplanation)} Component={ExplanationBox} />
+            <Carousel items={experiences.map((exp) => exp.secondExplanation)} Component={CenterBox} />
           )}
         </Style.MiddleBottom>
       </Style.Middle>
