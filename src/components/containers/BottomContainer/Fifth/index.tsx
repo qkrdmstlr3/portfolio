@@ -4,7 +4,8 @@ import * as Style from './styled';
 import SkillBox from '../../../UI/SkillBox';
 import Carousel from '../../../UI/Carousel/index';
 import CenterBox from '../../../UI/CenterBox';
-import { experiences } from '../../../../constants';
+import { experiences, portfolios } from '../../../../constants';
+import ImageBox from '../../../UI/ImageBox';
 
 interface FifthProps {
   screen: ScreenType;
@@ -40,6 +41,9 @@ function Fifth({ screen, changing, changeScreen }: FifthProps) {
           {!changing && screen === 'skill' && <SkillBox skills={middleBottomSkills} align="row" />}
           {!changing && screen === 'experience' && (
             <Carousel items={experiences.map((exp) => exp.secondExplanation)} Component={CenterBox} />
+          )}
+          {!changing && screen === 'portfolio' && (
+            <Carousel items={portfolios.map((port) => port.imgLink)} Component={ImageBox} />
           )}
         </Style.MiddleBottom>
       </Style.Middle>
