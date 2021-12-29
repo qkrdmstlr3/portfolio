@@ -10,4 +10,5 @@ export const Container = styled.div<ContainerProps>`
   align-items: center;
   width: ${(props) => props.size};
   height: ${(props) => props.size};
+  cursor: pointer;
 `;

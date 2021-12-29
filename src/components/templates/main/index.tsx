@@ -7,17 +7,22 @@ import * as Style from './styled';
 export type ScreenType = 'main' | 'portfolio' | 'skill' | 'contact' | 'experience';
 
 function Main() {
+  const [changing, setChanging] = useState(false);
   const [screen, setScreen] = useState<ScreenType>('main');
 
   const changeScreen = (changedScreen: ScreenType) => {
     setScreen(screen === changedScreen ? 'main' : changedScreen);
+    setChanging(true);
+    setTimeout(() => {
+      setChanging(false);
+    }, 2000);
   };
 
   return (
     <Style.Container>
       <TopContainer screen={screen} changeScreen={changeScreen} />
       <MiddleContainer screen={screen} />
-      <BottomContainer screen={screen} changeScreen={changeScreen} />
+      <BottomContainer changing={changing} screen={screen} changeScreen={changeScreen} />
     </Style.Container>
   );
 }

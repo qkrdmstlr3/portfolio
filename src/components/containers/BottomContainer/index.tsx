@@ -7,17 +7,18 @@ import { ScreenType } from '../../templates/main/index';
 
 interface BottomContainerProps {
   screen: ScreenType;
+  changing: boolean;
   changeScreen: (screen: ScreenType) => void;
 }
 
-function BottomContainer({ screen, changeScreen }: BottomContainerProps) {
+function BottomContainer({ screen, changing, changeScreen }: BottomContainerProps) {
   return (
     <Style.Container screen={screen}>
       <Style.Top screen={screen}>
         <Fifth screen={screen} changeScreen={changeScreen} />
       </Style.Top>
       <Style.Bottom screen={screen}>
-        <Sixth screen={screen} />
+        <Sixth changing={changing} screen={screen} />
         <Seventh changeScreen={changeScreen} />
       </Style.Bottom>
     </Style.Container>
