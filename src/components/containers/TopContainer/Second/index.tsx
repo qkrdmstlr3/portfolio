@@ -10,6 +10,7 @@ interface SecondProps {
 }
 
 function Second({ screen, changing, changeScreen }: SecondProps) {
+  // FIXME:
   const middleSkills = [
     'https://techstack-generator.vercel.app/react-icon.svg',
     'https://techstack-generator.vercel.app/redux-icon.svg',
