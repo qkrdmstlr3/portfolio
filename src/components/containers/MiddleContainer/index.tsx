@@ -3,7 +3,7 @@ import { ScreenType } from '../../templates/main';
 import * as Style from './styled';
 import Carousel from '../../UI/Carousel';
 import CenterBox from '../../UI/CenterBox/index';
-import { experiences } from '../../../constants';
+import { experiences, portfolios } from '../../../constants';
 
 interface MiddleContainerProps {
   screen: ScreenType;
@@ -21,6 +21,9 @@ function MiddleContainer({ screen, changing }: MiddleContainerProps) {
       )}
       {!changing && screen === 'experience' && (
         <Carousel items={experiences.map((exp) => exp.title)} Component={CenterBox} />
+      )}
+      {!changing && screen === 'portfolio' && (
+        <Carousel items={portfolios.map((exp) => exp.title)} Component={CenterBox} />
       )}
     </Style.Container>
   );
