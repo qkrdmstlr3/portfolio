@@ -13,6 +13,8 @@ export const Container = styled.div<ContainerProps>`
   justify-content: center;
   align-items: center;
 
+  color: ${color.white};
+  font-weight: bold;
   transition: all 2s linear;
   border: 2px solid ${color.black};
   background-color: ${color.blue};
@@ -21,10 +23,8 @@ export const Container = styled.div<ContainerProps>`
 
 export const Explanation = styled.h2`
   font-size: 2.4rem;
-  color: ${color.white};
 `;
 
 export const Name = styled.h1`
   font-size: 6.4rem;
-  color: ${color.white};
 `;
