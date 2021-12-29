@@ -7,15 +7,16 @@ import { ScreenType } from '../../templates/main/index';
 
 interface TopContainerProps {
   screen: ScreenType;
+  changing: boolean;
   changeScreen: (screen: ScreenType) => void;
 }
 
-function TopContainer({ screen, changeScreen }: TopContainerProps) {
+function TopContainer({ screen, changing, changeScreen }: TopContainerProps) {
   return (
     <Style.Container screen={screen}>
       <Style.Left>
         <First screen={screen} />
-        <Second screen={screen} changeScreen={changeScreen} />
+        <Second changing={changing} screen={screen} changeScreen={changeScreen} />
       </Style.Left>
       <Style.Right>
         <Third screen={screen} changeScreen={changeScreen} />

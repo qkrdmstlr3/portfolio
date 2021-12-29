@@ -14,6 +14,7 @@ export const Container = styled.div<ContainerProps>`
   justify-content: space-around;
 `;
 
-export const Image = styled.img`
-  width: 25%;
+export const Image = styled.img<ContainerProps>`
+  width: ${(props) => (props.align === 'row' ? '25%' : 'auto')};
+  height: ${(props) => (props.align === 'row' ? 'auto' : '25%')};
 `;

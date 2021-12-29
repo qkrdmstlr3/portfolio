@@ -20,7 +20,7 @@ function Main() {
 
   return (
     <Style.Container>
-      <TopContainer screen={screen} changeScreen={changeScreen} />
+      <TopContainer changing={changing} screen={screen} changeScreen={changeScreen} />
       <MiddleContainer screen={screen} />
       <BottomContainer changing={changing} screen={screen} changeScreen={changeScreen} />
     </Style.Container>

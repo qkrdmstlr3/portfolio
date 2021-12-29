@@ -11,7 +11,7 @@ function SkillBox({ skills, align }: SkillBoxProps) {
   return (
     <Style.Container align={align}>
       {skills.map((skill) => (
-        <Style.Image key={skill} src={skill} />
+        <Style.Image key={skill} align={align} src={skill} />
       ))}
     </Style.Container>
   );
