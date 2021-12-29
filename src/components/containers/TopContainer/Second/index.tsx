@@ -2,9 +2,10 @@ import React from 'react';
 import * as Style from './styled';
 import { ScreenType } from '../../../templates/main/index';
 import SkillBox from '../../../UI/SkillBox';
-import { experiences } from '../../../../constants';
+import { experiences, portfolios } from '../../../../constants';
 import Carousel from '../../../UI/Carousel/index';
 import TextColumnBox from '../../../UI/TextColumnBox/index';
+import ImageBox from '../../../UI/ImageBox';
 
 interface SecondProps {
   screen: ScreenType;
@@ -31,7 +32,11 @@ function Second({ screen, changing, changeScreen }: SecondProps) {
         <Style.LeftTop onClick={() => changeScreen('contact')}>
           <Style.Title>contact</Style.Title>
         </Style.LeftTop>
-        <Style.LeftBottom />
+        <Style.LeftBottom>
+          {!changing && screen === 'portfolio' && (
+            <Carousel items={portfolios.map((port) => port.logo)} Component={ImageBox} />
+          )}
+        </Style.LeftBottom>
       </Style.Left>
       <Style.Middle>
         {!changing && screen === 'skill' && <SkillBox skills={middleSkills} align="column" />}

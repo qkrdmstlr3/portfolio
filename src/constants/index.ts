@@ -46,7 +46,7 @@ export const portfolios: PortfolioType[] = [
     endDate: new Date('2020-12'),
     explanation: '지도의 세부사항을 커스텀',
     imgLink: 'styled-map-admin-tool.png',
-    logo: '',
+    logo: 'styled-map-admin-tool-logo.png',
   },
   {
     title: 'ARC PIE CHART',
@@ -54,7 +54,7 @@ export const portfolios: PortfolioType[] = [
     endDate: new Date('2021-10'),
     explanation: '다운로드 수 1.4k이상 차트 라이브러리',
     imgLink: 'arc-pie-chart.png',
-    logo: '',
+    logo: 'arc-pie-chart-logo.png',
   },
   {
     title: 'TechStack Generator',
@@ -62,6 +62,6 @@ export const portfolios: PortfolioType[] = [
     endDate: new Date('2021-12'),
     explanation: '살아움직이는 기술 스택 아이콘 제공',
     imgLink: 'tsg.png',
-    logo: '',
+    logo: 'tsg-logo.png',
   },
 ];

@@ -16,6 +16,7 @@ export const Container = styled.div<ContainerProps>`
 export const Left = styled.div`
   width: 32%;
   height: 100%;
+  overflow: hidden;
 `;
 
 export const LeftTop = styled.div`
@@ -24,7 +25,6 @@ export const LeftTop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 
   cursor: pointer;
   border: 2px solid black;
