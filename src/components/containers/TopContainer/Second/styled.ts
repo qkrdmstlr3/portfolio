@@ -24,6 +24,7 @@ export const LeftTop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   cursor: pointer;
   border: 2px solid black;
@@ -32,7 +33,7 @@ export const LeftTop = styled.div`
 
 export const Title = styled.h2`
   color: ${color.white};
-  font-size: 2.4rem;
+  font-size: 2.1rem;
 `;
 
 export const LeftBottom = styled.div`
@@ -42,12 +43,14 @@ export const LeftBottom = styled.div`
 `;
 
 export const Middle = styled.div`
+  overflow: hidden;
   width: 36%;
   height: 100%;
   border: 2px solid black;
 `;
 
 export const Right = styled.div`
+  overflow: hidden;
   width: 37%;
   height: 100%;
   border: 2px solid black;
