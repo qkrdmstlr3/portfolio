@@ -2,6 +2,9 @@ import React from 'react';
 import * as Style from './styled';
 import { ScreenType } from '../../../templates/main/index';
 import SkillBox from '../../../UI/SkillBox';
+import { experiences } from '../../../../constants';
+import Carousel from '../../../UI/Carousel/index';
+import TextColumnBox from '../../../UI/TextColumnBox/index';
 
 interface SecondProps {
   screen: ScreenType;
@@ -32,8 +35,22 @@ function Second({ screen, changing, changeScreen }: SecondProps) {
       </Style.Left>
       <Style.Middle>
         {!changing && screen === 'skill' && <SkillBox skills={middleSkills} align="column" />}
+        {!changing && screen === 'experience' && (
+          <Carousel
+            items={experiences.map((exp) => exp.startDate.toLocaleDateString().slice(0, 9))}
+            Component={TextColumnBox}
+          />
+        )}
       </Style.Middle>
-      <Style.Right>{!changing && screen === 'skill' && <SkillBox skills={rightSkills} align="column" />}</Style.Right>
+      <Style.Right>
+        {!changing && screen === 'skill' && <SkillBox skills={rightSkills} align="column" />}
+        {!changing && screen === 'experience' && (
+          <Carousel
+            items={experiences.map((exp) => exp.endDate.toLocaleDateString().slice(0, 9))}
+            Component={TextColumnBox}
+          />
+        )}
+      </Style.Right>
     </Style.Container>
   );
 }
