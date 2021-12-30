@@ -10,10 +10,11 @@ import ImageBox from '../../../UI/ImageBox';
 interface SecondProps {
   screen: ScreenType;
   changing: boolean;
+  carouselIndex: number;
   changeScreen: (screen: ScreenType) => void;
 }
 
-function Second({ screen, changing, changeScreen }: SecondProps) {
+function Second({ screen, changing, carouselIndex, changeScreen }: SecondProps) {
   // FIXME:
   const middleSkills = [
     'https://techstack-generator.vercel.app/react-icon.svg',
@@ -34,7 +35,7 @@ function Second({ screen, changing, changeScreen }: SecondProps) {
         </Style.LeftTop>
         <Style.LeftBottom>
           {!changing && screen === 'portfolio' && (
-            <Carousel items={portfolios.map((port) => port.logo)} Component={ImageBox} />
+            <Carousel items={portfolios.map((port) => port.logo)} carouselIndex={carouselIndex} Component={ImageBox} />
           )}
         </Style.LeftBottom>
       </Style.Left>
@@ -43,6 +44,7 @@ function Second({ screen, changing, changeScreen }: SecondProps) {
         {!changing && screen === 'experience' && (
           <Carousel
             items={experiences.map((exp) => exp.startDate.toLocaleDateString().slice(0, 9))}
+            carouselIndex={carouselIndex}
             Component={TextColumnBox}
           />
         )}
@@ -52,6 +54,7 @@ function Second({ screen, changing, changeScreen }: SecondProps) {
         {!changing && screen === 'experience' && (
           <Carousel
             items={experiences.map((exp) => exp.endDate.toLocaleDateString().slice(0, 9))}
+            carouselIndex={carouselIndex}
             Component={TextColumnBox}
           />
         )}

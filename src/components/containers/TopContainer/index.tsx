@@ -8,15 +8,16 @@ import { ScreenType } from '../../templates/main/index';
 interface TopContainerProps {
   screen: ScreenType;
   changing: boolean;
+  carouselIndex: number;
   changeScreen: (screen: ScreenType) => void;
 }
 
-function TopContainer({ screen, changing, changeScreen }: TopContainerProps) {
+function TopContainer({ screen, changing, carouselIndex, changeScreen }: TopContainerProps) {
   return (
     <Style.Container screen={screen}>
       <Style.Left>
         <First screen={screen} />
-        <Second changing={changing} screen={screen} changeScreen={changeScreen} />
+        <Second carouselIndex={carouselIndex} changing={changing} screen={screen} changeScreen={changeScreen} />
       </Style.Left>
       <Style.Right>
         <Third screen={screen} changeScreen={changeScreen} />

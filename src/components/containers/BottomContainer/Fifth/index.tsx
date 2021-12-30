@@ -11,10 +11,11 @@ import PortfolioBox from '../../../UI/PortfolioBox/index';
 interface FifthProps {
   screen: ScreenType;
   changing: boolean;
+  carouselIndex: number;
   changeScreen: (screen: ScreenType) => void;
 }
 
-function Fifth({ screen, changing, changeScreen }: FifthProps) {
+function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
   const middleTopSkills = [
     'https://techstack-generator.vercel.app/js-icon.svg',
     'https://techstack-generator.vercel.app/ts-icon.svg',
@@ -35,7 +36,11 @@ function Fifth({ screen, changing, changeScreen }: FifthProps) {
         <Style.MiddleTop>
           {!changing && screen === 'skill' && <SkillBox skills={middleTopSkills} align="row" />}
           {!changing && screen === 'experience' && (
-            <Carousel items={experiences.map((exp) => exp.firstExplanation)} Component={CenterBox} />
+            <Carousel
+              items={experiences.map((exp) => exp.firstExplanation)}
+              carouselIndex={carouselIndex}
+              Component={CenterBox}
+            />
           )}
           {!changing && screen === 'portfolio' && (
             <Carousel
@@ -44,6 +49,7 @@ function Fifth({ screen, changing, changeScreen }: FifthProps) {
                 endDate: port.endDate,
                 explanation: port.explanation,
               }))}
+              carouselIndex={carouselIndex}
               Component={PortfolioBox}
             />
           )}
@@ -51,10 +57,18 @@ function Fifth({ screen, changing, changeScreen }: FifthProps) {
         <Style.MiddleBottom>
           {!changing && screen === 'skill' && <SkillBox skills={middleBottomSkills} align="row" />}
           {!changing && screen === 'experience' && (
-            <Carousel items={experiences.map((exp) => exp.secondExplanation)} Component={CenterBox} />
+            <Carousel
+              items={experiences.map((exp) => exp.secondExplanation)}
+              carouselIndex={carouselIndex}
+              Component={CenterBox}
+            />
           )}
           {!changing && screen === 'portfolio' && (
-            <Carousel items={portfolios.map((port) => port.imgLink)} Component={ImageBox} />
+            <Carousel
+              items={portfolios.map((port) => port.imgLink)}
+              carouselIndex={carouselIndex}
+              Component={ImageBox}
+            />
           )}
         </Style.MiddleBottom>
       </Style.Middle>

@@ -8,9 +8,10 @@ import { experiences, portfolios } from '../../../constants';
 interface MiddleContainerProps {
   screen: ScreenType;
   changing: boolean;
+  carouselIndex: number;
 }
 
-function MiddleContainer({ screen, changing }: MiddleContainerProps) {
+function MiddleContainer({ screen, carouselIndex, changing }: MiddleContainerProps) {
   return (
     <Style.Container screen={screen}>
       {(screen === 'main' || screen === 'skill' || screen === 'contact') && (
@@ -20,10 +21,10 @@ function MiddleContainer({ screen, changing }: MiddleContainerProps) {
         </>
       )}
       {!changing && screen === 'experience' && (
-        <Carousel items={experiences.map((exp) => exp.title)} Component={CenterBox} />
+        <Carousel items={experiences.map((exp) => exp.title)} carouselIndex={carouselIndex} Component={CenterBox} />
       )}
       {!changing && screen === 'portfolio' && (
-        <Carousel items={portfolios.map((exp) => exp.title)} Component={CenterBox} />
+        <Carousel items={portfolios.map((exp) => exp.title)} carouselIndex={carouselIndex} Component={CenterBox} />
       )}
     </Style.Container>
   );

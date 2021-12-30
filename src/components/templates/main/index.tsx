@@ -1,14 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TopContainer from '../../containers/TopContainer';
 import MiddleContainer from '../../containers/MiddleContainer';
 import BottomContainer from '../../containers/BottomContainer';
 import * as Style from './styled';
+import { portfolios, experiences } from '../../../constants';
 
 export type ScreenType = 'main' | 'portfolio' | 'skill' | 'contact' | 'experience';
 
 function Main() {
   const [changing, setChanging] = useState(false);
+  const [carouselIndex, setCarouselIndex] = useState<number>(0);
   const [screen, setScreen] = useState<ScreenType>('main');
+
+  useEffect(() => {
+    setCarouselIndex(0);
+    const timeout = setInterval(() => {
+      if (screen === 'experience') setCarouselIndex((prev) => (prev + 1) % experiences.length);
+      else if (screen === 'portfolio') setCarouselIndex((prev) => (prev + 1) % portfolios.length);
+    }, 3000);
+
+    return () => clearInterval(timeout);
+  }, [screen]);
 
   const changeScreen = (changedScreen: ScreenType) => {
     setScreen(screen === changedScreen ? 'main' : changedScreen);
@@ -20,9 +32,9 @@ function Main() {
 
   return (
     <Style.Container>
-      <TopContainer changing={changing} screen={screen} changeScreen={changeScreen} />
-      <MiddleContainer changing={changing} screen={screen} />
-      <BottomContainer changing={changing} screen={screen} changeScreen={changeScreen} />
+      <TopContainer carouselIndex={carouselIndex} changing={changing} screen={screen} changeScreen={changeScreen} />
+      <MiddleContainer carouselIndex={carouselIndex} changing={changing} screen={screen} />
+      <BottomContainer carouselIndex={carouselIndex} changing={changing} screen={screen} changeScreen={changeScreen} />
     </Style.Container>
   );
 }
