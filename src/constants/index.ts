@@ -34,8 +34,8 @@ export const experiences: ExperienceType[] = [
     title: 'Purdue Winter Software Program',
     startDate: new Date('2022-01'),
     endDate: new Date('2022-02'),
-    firstExplanation: '퍼듀대학교에서 두 달간 프로젝트 진행',
-    secondExplanation: '드론을 이용해 나무를 촬영/분석해서 GPS위치 렌더링',
+    firstExplanation: '퍼듀대학교에서 60일 프로젝트 수행',
+    secondExplanation: '드론으로 나무를 촬영/분석한 GPS위치 시각화',
   },
 ];
 
@@ -52,7 +52,7 @@ export const portfolios: PortfolioType[] = [
     title: 'ARC PIE CHART',
     startDate: new Date('2020-10'),
     endDate: new Date('2021-10'),
-    explanation: '다운로드 수 1.4k이상 차트 라이브러리',
+    explanation: '다운로드 1.4k이상 차트 라이브러리',
     imgLink: 'arc-pie-chart.png',
     logo: 'arc-pie-chart-logo.png',
   },
