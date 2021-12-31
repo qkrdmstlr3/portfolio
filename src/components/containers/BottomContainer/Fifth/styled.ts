@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import color from '../../../../style/color';
+import mq from '../../../../style/mq';
 import { ScreenType } from '../../../templates/main/index';
 import { leftSelector, middleSelector, rightSelector } from './style-selector';
 
@@ -29,6 +30,10 @@ export const Left = styled.div<ScreenProps>`
 export const Title = styled.h2`
   color: ${color.white};
   font-size: 2.4rem;
+
+  ${mq('sm')} {
+    font-size: 1.8rem;
+  }
 `;
 
 export const Middle = styled.div<ScreenProps>`

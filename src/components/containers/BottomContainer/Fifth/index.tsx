@@ -30,7 +30,7 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
   return (
     <Style.Container>
       <Style.Left screen={screen} onClick={() => changeScreen('experience')}>
-        <Style.Title>experience</Style.Title>
+        <Style.Title>{screen === 'experience' || screen === 'portfolio' ? 'exp' : 'experience'}</Style.Title>
       </Style.Left>
       <Style.Middle screen={screen}>
         <Style.MiddleTop>
