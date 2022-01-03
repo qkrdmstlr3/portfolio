@@ -5,14 +5,15 @@ import * as Style from './styled';
 interface CarouselProps {
   items: any[];
   carouselIndex: number;
+  autoplay?: boolean;
   Component: any;
 }
 
-function Carousel({ items, carouselIndex, Component }: CarouselProps) {
+function Carousel({ items, autoplay = false, carouselIndex, Component }: CarouselProps) {
   const sliderRef = useRef<Slider>();
   const settings = {
+    autoplay,
     arrows: false,
-    // autoplay: true,
     infinite: true,
     slidesToShow: 1,
   };

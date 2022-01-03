@@ -1,12 +1,14 @@
 import React from 'react';
 import * as Style from './styled';
 
+export interface PortfolioInfoType {
+  startDate: Date;
+  endDate: Date;
+  explanation: string;
+}
+
 interface PortfolioBoxProps {
-  children: {
-    startDate: Date;
-    endDate: Date;
-    explanation: string;
-  };
+  children: PortfolioInfoType;
 }
 
 function PortfolioBox({ children: { startDate, endDate, explanation } }: PortfolioBoxProps) {

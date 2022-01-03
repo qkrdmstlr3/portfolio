@@ -2,7 +2,7 @@ import React from 'react';
 import * as Style from './styled';
 
 interface TextColumnBox {
-  children: React.ReactElement;
+  children: string;
 }
 
 function TextColumnBox({ children }: TextColumnBox) {
