@@ -19,7 +19,7 @@ function BottomContainer({ screen, changing, carouselIndex, changeScreen }: Bott
         <Fifth carouselIndex={carouselIndex} changing={changing} screen={screen} changeScreen={changeScreen} />
       </Style.Top>
       <Style.Bottom screen={screen}>
-        <Sixth changing={changing} screen={screen} />
+        <Sixth changing={changing} screen={screen} carouselIndex={carouselIndex} />
         <Seventh changeScreen={changeScreen} />
       </Style.Bottom>
     </Style.Container>

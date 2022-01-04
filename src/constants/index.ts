@@ -13,6 +13,8 @@ export interface PortfolioType {
   explanation: string;
   imgLink: string;
   logo: string;
+  githubLink: string;
+  deployLink: string;
 }
 
 export const experiences: ExperienceType[] = [
@@ -47,6 +49,8 @@ export const portfolios: PortfolioType[] = [
     explanation: '지도의 세부사항을 커스텀',
     imgLink: 'styled-map-admin-tool.png',
     logo: 'styled-map-admin-tool-logo.png',
+    deployLink: 'https://map-styler.vercel.app/map',
+    githubLink: 'https://github.com/boostcamp-2020/Project08-A-Styled-Map-Admin-Tool',
   },
   {
     title: 'ARC PIE CHART',
@@ -55,6 +59,8 @@ export const portfolios: PortfolioType[] = [
     explanation: '다운로드 1.4k이상 차트 라이브러리',
     imgLink: 'arc-pie-chart.png',
     logo: 'arc-pie-chart-logo.png',
+    deployLink: 'https://www.npmjs.com/package/arc-pie-chart',
+    githubLink: 'https://github.com/qkrdmstlr3/arc-pie-chart',
   },
   {
     title: 'TechStack Generator',
@@ -63,5 +69,7 @@ export const portfolios: PortfolioType[] = [
     explanation: '살아움직이는 기술 스택 아이콘 제공',
     imgLink: 'tsg.png',
     logo: 'tsg-logo.png',
+    deployLink: 'https://techstack-generator.vercel.app/',
+    githubLink: 'https://github.com/qkrdmstlr3/techstack-generator',
   },
 ];
