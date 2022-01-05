@@ -14,8 +14,8 @@ interface PortfolioBoxProps {
 function PortfolioBox({ children: { startDate, endDate, explanation } }: PortfolioBoxProps) {
   return (
     <Style.Container>
-      <Style.Date>
-        {startDate.toLocaleString().slice(0, 9)} - {endDate.toLocaleString().slice(0, 9)}
+      <Style.Date aria-label="date">
+        {startDate.toISOString().slice(0, 9)} / {endDate.toISOString().slice(0, 9)}
       </Style.Date>
       <Style.Explanation>{explanation}</Style.Explanation>
     </Style.Container>
