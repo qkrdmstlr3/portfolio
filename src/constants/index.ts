@@ -63,6 +63,16 @@ export const portfolios: PortfolioType[] = [
     githubLink: 'https://github.com/qkrdmstlr3/arc-pie-chart',
   },
   {
+    title: 'Devlog',
+    startDate: new Date('2021-01'),
+    endDate: new Date('2021-10'),
+    explanation: '개발 블로그',
+    imgLink: 'devlog.png',
+    logo: 'devlog-logo.png',
+    deployLink: 'https://www.shellboylog.com/',
+    githubLink: 'https://github.com/qkrdmstlr3/devlog',
+  },
+  {
     title: 'TechStack Generator',
     startDate: new Date('2021-10'),
     endDate: new Date('2021-12'),
