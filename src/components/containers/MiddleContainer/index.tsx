@@ -13,7 +13,7 @@ interface MiddleContainerProps {
 
 function MiddleContainer({ screen, carouselIndex, changing }: MiddleContainerProps) {
   return (
-    <Style.Container screen={screen}>
+    <Style.Container aria-label="middle-container" screen={screen}>
       {(screen === 'main' || screen === 'skill' || screen === 'contact') && (
         <>
           <Style.Explanation>개발을 정말 열심히하는</Style.Explanation>
