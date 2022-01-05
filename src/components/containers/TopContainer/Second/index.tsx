@@ -28,9 +28,9 @@ function Second({ screen, changing, carouselIndex, changeScreen }: SecondProps) 
   ];
 
   return (
-    <Style.Container screen={screen}>
+    <Style.Container aria-label="second-container" screen={screen}>
       <Style.Left>
-        <Style.LeftTop onClick={() => changeScreen('contact')}>
+        <Style.LeftTop aria-label="second-left-top" onClick={() => changeScreen('contact')}>
           <Style.Title>contact</Style.Title>
         </Style.LeftTop>
         <Style.LeftBottom>

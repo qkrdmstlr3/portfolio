@@ -8,7 +8,7 @@ interface FirstProps {
 
 function First({ screen }: FirstProps) {
   return (
-    <Style.Container screen={screen}>
+    <Style.Container aria-label="first-container" screen={screen}>
       <Style.Left />
       <Style.Right />
     </Style.Container>

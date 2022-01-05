@@ -10,10 +10,10 @@ interface ThirdProps {
 function Third({ screen, changeScreen }: ThirdProps) {
   return (
     <Style.Container>
-      <Style.Top screen={screen} onClick={() => changeScreen('portfolio')}>
+      <Style.Top aria-label="third-top" screen={screen} onClick={() => changeScreen('portfolio')}>
         <Style.Title>portfolio</Style.Title>
       </Style.Top>
-      <Style.Bottom screen={screen} />
+      <Style.Bottom aria-label="third-bottom" screen={screen} />
     </Style.Container>
   );
 }
