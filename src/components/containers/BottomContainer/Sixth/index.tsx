@@ -19,23 +19,23 @@ function Sixth({ screen, changing, carouselIndex }: SixthProps) {
 
   return (
     <Style.Container>
-      <Style.BlackBox screen={screen} />
-      <Style.FirstBox screen={screen}>
+      <Style.BlackBox aria-label="sixth-black" screen={screen} />
+      <Style.FirstBox aria-label="sixth-first" screen={screen}>
         {!changing && (screen === 'contact' || screen === 'portfolio') && (
           <Icon icon="github" color={color.black} size="50%" href={githubLink} />
         )}
       </Style.FirstBox>
-      <Style.SecondBox screen={screen}>
+      <Style.SecondBox aria-label="sixth-second" screen={screen}>
         {!changing && (screen === 'contact' || screen === 'portfolio') && (
           <Icon icon="blog" color={color.black} size="50%" href={blogLink} />
         )}
       </Style.SecondBox>
-      <Style.ThirdBox screen={screen}>
+      <Style.ThirdBox aria-label="sixth-third" screen={screen}>
         {!changing && screen === 'contact' && (
           <Icon icon="linkedin" color={color.black} size="50%" href={linkedinLink} />
         )}
       </Style.ThirdBox>
-      <Style.FourthBox screen={screen}>
+      <Style.FourthBox aria-label="sixth-fourth" screen={screen}>
         {!changing && screen === 'contact' && <Icon icon="mail" color={color.black} size="50%" href={emailLink} />}
       </Style.FourthBox>
     </Style.Container>

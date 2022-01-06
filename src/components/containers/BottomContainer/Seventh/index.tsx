@@ -9,7 +9,7 @@ interface SeventhProps {
 function Seventh({ changeScreen }: SeventhProps) {
   return (
     <Style.Container>
-      <Style.Top onClick={() => changeScreen('skill')}>
+      <Style.Top aria-label="seventh-top" onClick={() => changeScreen('skill')}>
         <Style.Title>skill</Style.Title>
       </Style.Top>
       <Style.Bottom />

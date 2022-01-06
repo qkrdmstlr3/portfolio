@@ -29,10 +29,10 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
 
   return (
     <Style.Container>
-      <Style.Left screen={screen} onClick={() => changeScreen('experience')}>
+      <Style.Left aria-label="fifth-left" screen={screen} onClick={() => changeScreen('experience')}>
         <Style.Title>{screen === 'experience' || screen === 'portfolio' ? 'exp' : 'experience'}</Style.Title>
       </Style.Left>
-      <Style.Middle screen={screen}>
+      <Style.Middle aria-label="fifth-mid" screen={screen}>
         <Style.MiddleTop>
           {!changing && screen === 'skill' && <SkillBox skills={middleTopSkills} align="row" />}
           {!changing && screen === 'experience' && (
@@ -72,7 +72,7 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
           )}
         </Style.MiddleBottom>
       </Style.Middle>
-      <Style.Right screen={screen} />
+      <Style.Right aria-label="fifth-right" screen={screen} />
     </Style.Container>
   );
 }
