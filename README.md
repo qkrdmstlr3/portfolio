@@ -1,6 +1,6 @@
 # 🚀 SHELLBOY PORTFOLIO
 
-## 현재 🚧 공사중 🚧
+Frontend Developer SHELLBOY's portfolio
 
 ## 사용 기술
 
