@@ -14,7 +14,7 @@ describe('Component/Container/MiddleContainer', () => {
       const component = render(<MiddleContainer screen="main" changing={false} carouselIndex={carouselIndex} />);
       const middleContainer = component.getByLabelText('middle-container');
 
-      component.getByText('개발을 정말 열심히하는');
+      component.getByText('생각을 현실로 구현하는');
       component.getByText('조개소년');
       expect(middleContainer).toHaveStyle({
         width: '100%',
@@ -26,7 +26,7 @@ describe('Component/Container/MiddleContainer', () => {
       const component = render(<MiddleContainer screen="skill" changing={false} carouselIndex={carouselIndex} />);
       const middleContainer = component.getByLabelText('middle-container');
 
-      component.getByText('개발을 정말 열심히하는');
+      component.getByText('생각을 현실로 구현하는');
       component.getByText('조개소년');
       expect(middleContainer).toHaveStyle({
         width: '100%',
@@ -38,7 +38,7 @@ describe('Component/Container/MiddleContainer', () => {
       const component = render(<MiddleContainer screen="contact" changing={false} carouselIndex={carouselIndex} />);
       const middleContainer = component.getByLabelText('middle-container');
 
-      component.getByText('개발을 정말 열심히하는');
+      component.getByText('생각을 현실로 구현하는');
       component.getByText('조개소년');
       expect(middleContainer).toHaveStyle({
         width: '100%',
