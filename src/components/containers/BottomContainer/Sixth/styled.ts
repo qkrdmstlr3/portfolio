@@ -8,7 +8,7 @@ interface ScreenProps {
 }
 
 export const Container = styled.div`
-  width: 77%;
+  width: 77.5%;
   height: 100%;
   display: flex;
 `;
