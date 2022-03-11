@@ -13,7 +13,7 @@ const skills = [
 ];
 
 export const skillColumnBox = () => (
-  <div style={{ height: '100vh' }}>
+  <div style={{ height: 'calc(var(--vh, 1vh) * 100)' }}>
     <SkillBox skills={skills} align="column" />
   </div>
 );
