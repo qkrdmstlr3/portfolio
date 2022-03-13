@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import mq from '../../../style/mq';
 
 export const Container = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
