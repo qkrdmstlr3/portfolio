@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as Style from './styled';
+import generateUUID from '../../../utils/generateUUID';
 
 interface CarouselExpProps {
   items: any[];
@@ -36,11 +37,11 @@ function Carousel({ items, second, carouselIndex, Component }: CarouselExpProps)
     <Style.SliderWrapper>
       <Style.SliderList ref={sliderRef} xPixel={xPixel} transitionOff={transitionOff}>
         {items.map((item) => (
-          <Style.SliderItem key={item}>
+          <Style.SliderItem key={generateUUID()}>
             <Component>{item}</Component>
           </Style.SliderItem>
         ))}
-        <Style.SliderItem>
+        <Style.SliderItem key={generateUUID()}>
           <Component>{items[0]}</Component>
         </Style.SliderItem>
       </Style.SliderList>
