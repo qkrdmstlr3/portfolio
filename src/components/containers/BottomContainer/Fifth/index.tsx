@@ -7,6 +7,7 @@ import CenterBox from '../../../UI/CenterBox';
 import { experiences, portfolios } from '../../../../constants';
 import ImageBox from '../../../UI/ImageBox';
 import PortfolioBox from '../../../UI/PortfolioBox/index';
+import { SLIDER_SECOND } from '../../../../constants/variables';
 
 interface FifthProps {
   screen: ScreenType;
@@ -38,14 +39,14 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
           {!changing && screen === 'experience' && (
             <Carousel
               items={experiences.map((exp) => exp.firstExplanation)}
-              second={3}
+              second={SLIDER_SECOND}
               carouselIndex={carouselIndex}
               Component={CenterBox}
             />
           )}
           {!changing && screen === 'portfolio' && (
             <Carousel
-              second={3}
+              second={SLIDER_SECOND}
               items={portfolios.map((port) => ({
                 startDate: port.startDate,
                 endDate: port.endDate,
@@ -61,14 +62,14 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
           {!changing && screen === 'experience' && (
             <Carousel
               items={experiences.map((exp) => exp.secondExplanation)}
-              second={3}
+              second={SLIDER_SECOND}
               carouselIndex={carouselIndex}
               Component={CenterBox}
             />
           )}
           {!changing && screen === 'portfolio' && (
             <Carousel
-              second={3}
+              second={SLIDER_SECOND}
               items={portfolios.map((port) => port.imgLink)}
               carouselIndex={carouselIndex}
               Component={ImageBox}

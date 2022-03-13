@@ -4,6 +4,7 @@ import MiddleContainer from '../../containers/MiddleContainer';
 import BottomContainer from '../../containers/BottomContainer';
 import * as Style from './styled';
 import { portfolios, experiences } from '../../../constants';
+import { CHANGE_SCREEN_SECOND, SLIDER_SECOND } from '../../../constants/variables';
 
 export type ScreenType = 'main' | 'portfolio' | 'skill' | 'contact' | 'experience';
 
@@ -17,7 +18,7 @@ function Main() {
     const timeout = setInterval(() => {
       if (screen === 'experience') setCarouselIndex((prev) => (prev + 1) % experiences.length);
       else if (screen === 'portfolio') setCarouselIndex((prev) => (prev + 1) % portfolios.length);
-    }, 3000);
+    }, SLIDER_SECOND * 1000);
 
     return () => clearInterval(timeout);
   }, [screen]);
@@ -27,7 +28,7 @@ function Main() {
     setChanging(true);
     setTimeout(() => {
       setChanging(false);
-    }, 2000);
+    }, CHANGE_SCREEN_SECOND);
   };
 
   return (

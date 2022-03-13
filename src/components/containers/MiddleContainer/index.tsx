@@ -4,6 +4,7 @@ import * as Style from './styled';
 import Carousel from '../../UI/Carousel';
 import CenterBox from '../../UI/CenterBox/index';
 import { experiences, portfolios } from '../../../constants';
+import { SLIDER_SECOND } from '../../../constants/variables';
 
 interface MiddleContainerProps {
   screen: ScreenType;
@@ -22,7 +23,7 @@ function MiddleContainer({ screen, carouselIndex, changing }: MiddleContainerPro
       )}
       {!changing && screen === 'experience' && (
         <Carousel
-          second={3}
+          second={SLIDER_SECOND}
           items={experiences.map((exp) => exp.title)}
           carouselIndex={carouselIndex}
           Component={CenterBox}
@@ -30,7 +31,7 @@ function MiddleContainer({ screen, carouselIndex, changing }: MiddleContainerPro
       )}
       {!changing && screen === 'portfolio' && (
         <Carousel
-          second={3}
+          second={SLIDER_SECOND}
           items={portfolios.map((exp) => exp.title)}
           carouselIndex={carouselIndex}
           Component={CenterBox}
