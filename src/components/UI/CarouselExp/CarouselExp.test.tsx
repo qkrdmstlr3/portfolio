@@ -3,18 +3,20 @@
  */
 import React from 'react';
 import { render } from '@testing-library/react';
-import Carousel from '.';
+import CarouselExp from '.';
 
 function Example({ children }) {
   return <div>{children}</div>;
 }
 
-describe('Component/UI/Carousel', () => {
+describe('Component/UI/CarouselExp', () => {
   const items = ['c', 'a', 'r', 'o', 'u', 's', 'e', 'l'];
   const carouselIndex = 0;
 
   it('rendering test', () => {
-    const component = render(<Carousel items={items} carouselIndex={carouselIndex} Component={Example} />);
+    const component = render(
+      <CarouselExp items={items} second={2} carouselIndex={carouselIndex} Component={Example} />
+    );
 
     const selected = component.container.querySelector('.slick-current');
     expect(selected.classList).toContain('slick-active');

@@ -3,7 +3,7 @@ import * as Style from './styled';
 import { ScreenType } from '../../../templates/main/index';
 import SkillBox from '../../../UI/SkillBox';
 import { experiences, portfolios } from '../../../../constants';
-import Carousel from '../../../UI/Carousel/index';
+import CarouselExp from '../../../UI/CarouselExp';
 import TextColumnBox from '../../../UI/TextColumnBox/index';
 import ImageBox from '../../../UI/ImageBox';
 
@@ -35,14 +35,20 @@ function Second({ screen, changing, carouselIndex, changeScreen }: SecondProps) 
         </Style.LeftTop>
         <Style.LeftBottom>
           {!changing && screen === 'portfolio' && (
-            <Carousel items={portfolios.map((port) => port.logo)} carouselIndex={carouselIndex} Component={ImageBox} />
+            <CarouselExp
+              second={3}
+              items={portfolios.map((port) => port.logo)}
+              carouselIndex={carouselIndex}
+              Component={ImageBox}
+            />
           )}
         </Style.LeftBottom>
       </Style.Left>
       <Style.Middle>
         {!changing && screen === 'skill' && <SkillBox skills={middleSkills} align="column" />}
         {!changing && screen === 'experience' && (
-          <Carousel
+          <CarouselExp
+            second={3}
             items={experiences.map((exp) => exp.startDate.toLocaleDateString().slice(0, 9))}
             carouselIndex={carouselIndex}
             Component={TextColumnBox}
@@ -52,7 +58,8 @@ function Second({ screen, changing, carouselIndex, changeScreen }: SecondProps) 
       <Style.Right>
         {!changing && screen === 'skill' && <SkillBox skills={rightSkills} align="column" />}
         {!changing && screen === 'experience' && (
-          <Carousel
+          <CarouselExp
+            second={3}
             items={experiences.map((exp) => exp.endDate.toLocaleDateString().slice(0, 9))}
             carouselIndex={carouselIndex}
             Component={TextColumnBox}
