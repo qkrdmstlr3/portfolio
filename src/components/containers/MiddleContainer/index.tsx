@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScreenType } from '../../templates/main';
 import * as Style from './styled';
-import CarouselExp from '../../UI/CarouselExp';
+import Carousel from '../../UI/Carousel';
 import CenterBox from '../../UI/CenterBox/index';
 import { experiences, portfolios } from '../../../constants';
 
@@ -21,7 +21,7 @@ function MiddleContainer({ screen, carouselIndex, changing }: MiddleContainerPro
         </>
       )}
       {!changing && screen === 'experience' && (
-        <CarouselExp
+        <Carousel
           second={3}
           items={experiences.map((exp) => exp.title)}
           carouselIndex={carouselIndex}
@@ -29,7 +29,7 @@ function MiddleContainer({ screen, carouselIndex, changing }: MiddleContainerPro
         />
       )}
       {!changing && screen === 'portfolio' && (
-        <CarouselExp
+        <Carousel
           second={3}
           items={portfolios.map((exp) => exp.title)}
           carouselIndex={carouselIndex}

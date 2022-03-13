@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
-import CarouselExp from '.';
+import Carousel from '.';
 
 export default {
-  title: 'Component/CarouselExp',
-  component: CarouselExp,
+  title: 'Component/Carousel',
+  component: Carousel,
   decorators: [withKnobs],
 };
 
 const items = ['a', 'b', 'c', 'd'];
 const Component = ({ children }) => <div>{children}</div>;
-export const carouselExp = () => {
+export const carousel = () => {
   const [carouselIndex, setCarouselIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -21,5 +21,5 @@ export const carouselExp = () => {
     return () => clearInterval(timeout);
   }, []);
 
-  return <CarouselExp items={items} second={2} carouselIndex={carouselIndex} Component={Component} />;
+  return <Carousel items={items} second={2} carouselIndex={carouselIndex} Component={Component} />;
 };

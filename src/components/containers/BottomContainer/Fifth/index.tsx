@@ -2,7 +2,7 @@ import React from 'react';
 import { ScreenType } from '../../../templates/main';
 import * as Style from './styled';
 import SkillBox from '../../../UI/SkillBox';
-import CarouselExp from '../../../UI/CarouselExp';
+import Carousel from '../../../UI/Carousel';
 import CenterBox from '../../../UI/CenterBox';
 import { experiences, portfolios } from '../../../../constants';
 import ImageBox from '../../../UI/ImageBox';
@@ -36,7 +36,7 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
         <Style.MiddleTop>
           {!changing && screen === 'skill' && <SkillBox skills={middleTopSkills} align="row" />}
           {!changing && screen === 'experience' && (
-            <CarouselExp
+            <Carousel
               items={experiences.map((exp) => exp.firstExplanation)}
               second={3}
               carouselIndex={carouselIndex}
@@ -44,7 +44,7 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
             />
           )}
           {!changing && screen === 'portfolio' && (
-            <CarouselExp
+            <Carousel
               second={3}
               items={portfolios.map((port) => ({
                 startDate: port.startDate,
@@ -59,7 +59,7 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
         <Style.MiddleBottom>
           {!changing && screen === 'skill' && <SkillBox skills={middleBottomSkills} align="row" />}
           {!changing && screen === 'experience' && (
-            <CarouselExp
+            <Carousel
               items={experiences.map((exp) => exp.secondExplanation)}
               second={3}
               carouselIndex={carouselIndex}
@@ -67,7 +67,7 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
             />
           )}
           {!changing && screen === 'portfolio' && (
-            <CarouselExp
+            <Carousel
               second={3}
               items={portfolios.map((port) => port.imgLink)}
               carouselIndex={carouselIndex}

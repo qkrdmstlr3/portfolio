@@ -12,7 +12,7 @@ interface CarouselExpProps {
  * It have to get CarouselIndex and second as props
  * It is used to sync with other sliders
  */
-function CarouselExp({ items, second, carouselIndex, Component }: CarouselExpProps) {
+function Carousel({ items, second, carouselIndex, Component }: CarouselExpProps) {
   const sliderRef = useRef<HTMLUListElement>();
   const [xPixel, setXPixel] = useState<number>(0);
   const [transitionOff, setTransitionOff] = useState<boolean>(true);
@@ -48,4 +48,4 @@ function CarouselExp({ items, second, carouselIndex, Component }: CarouselExpPro
   );
 }
 
-export default CarouselExp;
+export default Carousel;
