@@ -8,6 +8,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 2.4rem;
+  text-align: center;
 
   ${mq('sm')} {
     font-size: 1.5rem;

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { CHANGE_SCREEN_SECOND } from '../../../../constants/variables';
 import color from '../../../../style/color';
 import { ScreenType } from '../../../templates/main/index';
 import { topSelector, bottomSelector } from './style-selector';
@@ -17,7 +18,7 @@ export const Top = styled.div<ScreenProps>`
   align-items: center;
   justify-content: center;
 
-  transition: all 2s linear;
+  transition: all ${CHANGE_SCREEN_SECOND}ss linear;
   cursor: pointer;
   color: ${color.white};
   background-color: ${color.red};
@@ -30,7 +31,7 @@ export const Title = styled.h2`
 `;
 
 export const Bottom = styled.div<ScreenProps>`
-  transition: all 2s linear;
+  transition: all ${CHANGE_SCREEN_SECOND}ss linear;
   border: 2px solid ${color.black};
   ${(props) => bottomSelector[props.screen]};
 `;

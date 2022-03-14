@@ -3,6 +3,7 @@ import mq from '../../../../style/mq';
 import color from '../../../../style/color';
 import { ScreenType } from '../../../templates/main';
 import { screenSelector } from './style-selector';
+import { CHANGE_SCREEN_SECOND } from '../../../../constants/variables';
 
 interface ContainerProps {
   screen: ScreenType;
@@ -10,7 +11,7 @@ interface ContainerProps {
 
 export const Container = styled.div<ContainerProps>`
   display: flex;
-  transition: all 2s linear;
+  transition: all ${CHANGE_SCREEN_SECOND}s linear;
   ${(props) => screenSelector[props.screen]};
 `;
 

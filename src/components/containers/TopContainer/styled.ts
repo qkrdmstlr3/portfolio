@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { CHANGE_SCREEN_SECOND } from '../../../constants/variables';
 import { ScreenType } from '../../templates/main';
 import { screenSelector } from './style-selector';
 
@@ -9,7 +10,7 @@ interface ContainerProps {
 export const Container = styled.div<ContainerProps>`
   display: flex;
 
-  transition: all 2s linear;
+  transition: all ${CHANGE_SCREEN_SECOND}s linear;
   ${(props) => screenSelector[props.screen]};
 `;
 

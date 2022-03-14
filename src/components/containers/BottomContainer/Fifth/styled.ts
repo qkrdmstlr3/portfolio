@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { CHANGE_SCREEN_SECOND } from '../../../../constants/variables';
 import color from '../../../../style/color';
 import mq from '../../../../style/mq';
 import { ScreenType } from '../../../templates/main/index';
@@ -23,7 +24,7 @@ export const Left = styled.div<ScreenProps>`
   overflow: hidden;
   border: 2px solid black;
   background-color: ${color.yellow};
-  transition: all 2s linear;
+  transition: all ${CHANGE_SCREEN_SECOND}s linear;
   ${(props) => leftSelector[props.screen]};
 `;
 
@@ -37,7 +38,7 @@ export const Title = styled.h2`
 `;
 
 export const Middle = styled.div<ScreenProps>`
-  transition: all 2s linear;
+  transition: all ${CHANGE_SCREEN_SECOND}s linear;
   ${(props) => middleSelector[props.screen]};
 `;
 
@@ -55,6 +56,6 @@ export const MiddleBottom = styled.div`
 
 export const Right = styled.div<ScreenProps>`
   border: 2px solid black;
-  transition: all 2s linear;
+  transition: all ${CHANGE_SCREEN_SECOND}s linear;
   ${(props) => rightSelector[props.screen]};
 `;

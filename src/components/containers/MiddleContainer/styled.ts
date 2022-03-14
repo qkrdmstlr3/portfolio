@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { CHANGE_SCREEN_SECOND } from '../../../constants/variables';
 import color from '../../../style/color';
 import { ScreenType } from '../../templates/main';
 import { screenSelector } from './style-selector';
@@ -15,7 +16,7 @@ export const Container = styled.div<ContainerProps>`
 
   color: ${color.white};
   font-weight: bold;
-  transition: all 2s linear;
+  transition: all ${CHANGE_SCREEN_SECOND}s linear;
   border: 2px solid ${color.black};
   background-color: ${color.blue};
   ${(props) => screenSelector[props.screen]};

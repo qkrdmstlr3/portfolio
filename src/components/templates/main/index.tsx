@@ -28,7 +28,7 @@ function Main() {
     setChanging(true);
     setTimeout(() => {
       setChanging(false);
-    }, CHANGE_SCREEN_SECOND);
+    }, CHANGE_SCREEN_SECOND * 1000);
   };
 
   return (
