@@ -1,7 +1,11 @@
 import styled from '@emotion/styled';
 
 interface SliderListProps {
-  xPixel: number;
+  ulPixel: number;
+}
+
+interface BoxProps {
+  boxWidth: number;
   transitionOff: boolean;
 }
 
@@ -13,21 +17,24 @@ export const SliderWrapper = styled.div`
   position: relative;
 `;
 
-export const SliderList = styled.ul<SliderListProps>`
+export const SliderList = styled.div<SliderListProps>`
   display: flex;
   margin: 0;
   padding: 0;
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: -${(props) => props.ulPixel}px;
   height: 100%;
-
-  transform: ${(props) => `translateX(-${props.xPixel}px)`};
-  transition: ${(props) => (props.transitionOff ? 'none' : `all 1s linear`)};
+  width: 100%;
 `;
 
-export const SliderItem = styled.li`
+export const SliderItem = styled.div`
   min-width: 100%;
   height: 100%;
+`;
+
+export const Box = styled.div<BoxProps>`
+  height: 100%;
+  min-width: ${(props) => props.boxWidth}px;
+  transition: ${(props) => (props.transitionOff ? 'none' : `all 1s linear`)};
 `;
