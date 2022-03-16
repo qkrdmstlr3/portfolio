@@ -9,7 +9,7 @@ interface BoxProps {
   transitionOff: boolean;
 }
 
-export const SliderWrapper = styled.div`
+export const CarouselWrapper = styled.div`
   width: 100%;
   height: 100%;
 
@@ -17,7 +17,7 @@ export const SliderWrapper = styled.div`
   position: relative;
 `;
 
-export const SliderList = styled.div<SliderListProps>`
+export const CarouselList = styled.div<SliderListProps>`
   display: flex;
   margin: 0;
   padding: 0;
@@ -28,7 +28,7 @@ export const SliderList = styled.div<SliderListProps>`
   width: 100%;
 `;
 
-export const SliderItem = styled.div`
+export const CarouselItem = styled.div`
   min-width: 100%;
   height: 100%;
 `;

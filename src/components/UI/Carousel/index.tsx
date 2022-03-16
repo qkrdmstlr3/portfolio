@@ -13,14 +13,14 @@ interface CarouselExpProps {
  * It is used to sync with other sliders
  */
 function Carousel({ items, second, carouselIndex, Component }: CarouselExpProps) {
-  const sliderRef = useRef<HTMLDivElement>();
+  const carouselRef = useRef<HTMLDivElement>();
   const [boxWidth, setBoxWidth] = useState<number>(0);
   const [ulPixel, setUlPixel] = useState<number>(0);
   const [transitionOff, setTransitionOff] = useState<boolean>(true);
   const [firstRendering, setFirstRendering] = useState<boolean>(true);
 
   const changeXPixelToZero = () => {
-    const itemWidth = sliderRef.current.offsetWidth;
+    const itemWidth = carouselRef.current.offsetWidth;
     const UlPixel = itemWidth * (items.length + 1);
     setBoxWidth(UlPixel);
     setTransitionOff(true);
@@ -31,7 +31,7 @@ function Carousel({ items, second, carouselIndex, Component }: CarouselExpProps)
       setTimeout(changeXPixelToZero, (second * 1000) / 2);
     }
 
-    const itemWidth = sliderRef.current.offsetWidth;
+    const itemWidth = carouselRef.current.offsetWidth;
     const UlPixel = itemWidth * (items.length + 1);
     setBoxWidth(UlPixel - carouselIndex * itemWidth - itemWidth);
 
@@ -43,24 +43,24 @@ function Carousel({ items, second, carouselIndex, Component }: CarouselExpProps)
   }, [carouselIndex]);
 
   useEffect(() => {
-    const itemWidth = sliderRef.current.offsetWidth;
+    const itemWidth = carouselRef.current.offsetWidth;
     setUlPixel(itemWidth * (items.length + 1));
   }, []);
 
   return (
-    <Style.SliderWrapper ref={sliderRef}>
-      <Style.SliderList ulPixel={ulPixel}>
+    <Style.CarouselWrapper ref={carouselRef}>
+      <Style.CarouselList ulPixel={ulPixel}>
         <Style.Box boxWidth={boxWidth} transitionOff={transitionOff} />
-        <Style.SliderItem>
+        <Style.CarouselItem>
           <Component>{items[items.length - 1]}</Component>
-        </Style.SliderItem>
+        </Style.CarouselItem>
         {items.map((item) => (
-          <Style.SliderItem key={JSON.stringify(item)}>
+          <Style.CarouselItem key={JSON.stringify(item)}>
             <Component>{item}</Component>
-          </Style.SliderItem>
+          </Style.CarouselItem>
         ))}
-      </Style.SliderList>
-    </Style.SliderWrapper>
+      </Style.CarouselList>
+    </Style.CarouselWrapper>
   );
 }
 
