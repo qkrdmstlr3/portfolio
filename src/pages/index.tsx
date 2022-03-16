@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import MainTemplate from '../components/templates/main';
+import MainTemplate from '../components/templates/MainTemplate';
 import Helmet from '../lib/Helmet';
 import GlobalStyle from '../style/GlobalStyle';
 

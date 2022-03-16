@@ -8,7 +8,7 @@ import { CHANGE_SCREEN_SECOND, SLIDER_SECOND } from '../../../constants/variable
 
 export type ScreenType = 'main' | 'portfolio' | 'skill' | 'contact' | 'experience';
 
-function Main() {
+function MainTemplate() {
   const [changing, setChanging] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState<number>(0);
   const [screen, setScreen] = useState<ScreenType>('main');
@@ -40,4 +40,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default MainTemplate;
