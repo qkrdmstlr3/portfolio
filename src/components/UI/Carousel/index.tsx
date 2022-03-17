@@ -1,10 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as Style from './styled';
 
-interface CarouselExpProps {
-  items: any[];
+interface ItemType {
+  id: number;
+}
+
+interface CarouselExpProps<T> {
+  items: (ItemType & T)[];
   second: number;
-  Component: any;
+  Component: ({ children }) => JSX.Element;
   carouselIndex: number;
 }
 
@@ -12,7 +16,7 @@ interface CarouselExpProps {
  * It have to get CarouselIndex and second as props
  * It is used to sync with other sliders
  */
-function Carousel({ items, second, carouselIndex, Component }: CarouselExpProps) {
+function Carousel<T extends object>({ items, second, carouselIndex, Component }: CarouselExpProps<T>) {
   const carouselRef = useRef<HTMLDivElement>();
   const [boxWidth, setBoxWidth] = useState<number>(0);
   const [ulPixel, setUlPixel] = useState<number>(0);
@@ -55,7 +59,7 @@ function Carousel({ items, second, carouselIndex, Component }: CarouselExpProps)
           <Component>{items[items.length - 1]}</Component>
         </Style.CarouselItem>
         {items.map((item) => (
-          <Style.CarouselItem key={JSON.stringify(item)}>
+          <Style.CarouselItem key={item.id}>
             <Component>{item}</Component>
           </Style.CarouselItem>
         ))}

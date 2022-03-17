@@ -8,16 +8,22 @@ export default {
   decorators: [withKnobs],
 };
 
-const items = ['a', 'b', 'c', 'd'];
+const items = [
+  { id: 1, text: 'a' },
+  { id: 2, text: 'b' },
+  { id: 3, text: 'c' },
+];
 const SECOND = 2;
-const Component = ({ children }) => <div>{children}</div>;
+const Component = ({ children }) => {
+  return <div>{children.text}</div>;
+};
 export const carousel = () => {
   const [carouselIndex, setCarouselIndex] = useState<number>(0);
 
   useEffect(() => {
     const timeout = setInterval(() => {
       setCarouselIndex((prev) => (prev + 1) % items.length);
-    }, SECOND * 2);
+    }, SECOND * 1000);
 
     return () => clearInterval(timeout);
   }, []);
