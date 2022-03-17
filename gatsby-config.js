@@ -17,19 +17,11 @@ module.exports = {
         icon: 'static/favicon.png',
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-layout',
-    //   options: {
-    //     component: require.resolve('./src/components/Layout/index.tsx'),
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     name: 'images',
-    //     path: './src/images/',
-    //   },
-    //   __key: 'images',
-    // },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve('./src/components/containers/PageContainer/index.tsx'),
+      },
+    },
   ],
 };
