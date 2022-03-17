@@ -10,7 +10,11 @@ function Example({ children }) {
 }
 
 describe('Component/UI/Carousel', () => {
-  const items = ['c', 'a', 'r', 'o', 'u', 's', 'e', 'l'];
+  const items = [
+    { id: 1, text: 'a' },
+    { id: 2, text: 'b' },
+    { id: 3, text: 'c' },
+  ];
   const carouselIndex = 0;
 
   it('rendering test', () => {

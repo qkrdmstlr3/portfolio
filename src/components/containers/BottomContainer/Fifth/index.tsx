@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScreenType } from '../../../templates/main';
+import { ScreenType } from '../../../templates/MainTemplate';
 import * as Style from './styled';
 import SkillBox from '../../../UI/SkillBox';
 import Carousel from '../../../UI/Carousel';
@@ -38,7 +38,7 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
           {!changing && screen === 'skill' && <SkillBox skills={middleTopSkills} align="row" />}
           {!changing && screen === 'experience' && (
             <Carousel
-              items={experiences.map((exp) => exp.firstExplanation)}
+              items={experiences.map((exp, index) => ({ id: index, text: exp.firstExplanation }))}
               second={SLIDER_SECOND}
               carouselIndex={carouselIndex}
               Component={CenterBox}
@@ -47,7 +47,8 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
           {!changing && screen === 'portfolio' && (
             <Carousel
               second={SLIDER_SECOND}
-              items={portfolios.map((port) => ({
+              items={portfolios.map((port, index) => ({
+                id: index,
                 startDate: port.startDate,
                 endDate: port.endDate,
                 explanation: port.explanation,
@@ -61,7 +62,7 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
           {!changing && screen === 'skill' && <SkillBox skills={middleBottomSkills} align="row" />}
           {!changing && screen === 'experience' && (
             <Carousel
-              items={experiences.map((exp) => exp.secondExplanation)}
+              items={experiences.map((exp, index) => ({ id: index, text: exp.secondExplanation }))}
               second={SLIDER_SECOND}
               carouselIndex={carouselIndex}
               Component={CenterBox}
@@ -70,7 +71,7 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
           {!changing && screen === 'portfolio' && (
             <Carousel
               second={SLIDER_SECOND}
-              items={portfolios.map((port) => port.imgLink)}
+              items={portfolios.map((port, index) => ({ id: index, src: port.imgLink }))}
               carouselIndex={carouselIndex}
               Component={ImageBox}
             />

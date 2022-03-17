@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Style from './styled';
-import { ScreenType } from '../../../templates/main/index';
+import { ScreenType } from '../../../templates/MainTemplate';
 import SkillBox from '../../../UI/SkillBox';
 import { experiences, portfolios } from '../../../../constants';
 import Carousel from '../../../UI/Carousel';
@@ -38,7 +38,7 @@ function Second({ screen, changing, carouselIndex, changeScreen }: SecondProps) 
           {!changing && screen === 'portfolio' && (
             <Carousel
               second={SLIDER_SECOND}
-              items={portfolios.map((port) => port.logo)}
+              items={portfolios.map((port, index) => ({ id: index, src: port.logo }))}
               carouselIndex={carouselIndex}
               Component={ImageBox}
             />
@@ -50,7 +50,10 @@ function Second({ screen, changing, carouselIndex, changeScreen }: SecondProps) 
         {!changing && screen === 'experience' && (
           <Carousel
             second={SLIDER_SECOND}
-            items={experiences.map((exp) => exp.startDate.toLocaleDateString().slice(0, 9))}
+            items={experiences.map((exp, index) => ({
+              id: index,
+              text: exp.startDate.toLocaleDateString().slice(0, 9),
+            }))}
             carouselIndex={carouselIndex}
             Component={TextColumnBox}
           />
@@ -61,7 +64,7 @@ function Second({ screen, changing, carouselIndex, changeScreen }: SecondProps) 
         {!changing && screen === 'experience' && (
           <Carousel
             second={SLIDER_SECOND}
-            items={experiences.map((exp) => exp.endDate.toLocaleDateString().slice(0, 9))}
+            items={experiences.map((exp, index) => ({ id: index, text: exp.endDate.toLocaleDateString().slice(0, 9) }))}
             carouselIndex={carouselIndex}
             Component={TextColumnBox}
           />

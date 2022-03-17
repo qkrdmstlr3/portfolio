@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScreenType } from '../../templates/main';
+import { ScreenType } from '../../templates/MainTemplate';
 import * as Style from './styled';
 import Carousel from '../../UI/Carousel';
 import CenterBox from '../../UI/CenterBox/index';
@@ -24,7 +24,7 @@ function MiddleContainer({ screen, carouselIndex, changing }: MiddleContainerPro
       {!changing && screen === 'experience' && (
         <Carousel
           second={SLIDER_SECOND}
-          items={experiences.map((exp) => exp.title)}
+          items={experiences.map((exp, index) => ({ id: index, text: exp.title }))}
           carouselIndex={carouselIndex}
           Component={CenterBox}
         />
@@ -32,7 +32,7 @@ function MiddleContainer({ screen, carouselIndex, changing }: MiddleContainerPro
       {!changing && screen === 'portfolio' && (
         <Carousel
           second={SLIDER_SECOND}
-          items={portfolios.map((exp) => exp.title)}
+          items={portfolios.map((exp, index) => ({ id: index, text: exp.title }))}
           carouselIndex={carouselIndex}
           Component={CenterBox}
         />
