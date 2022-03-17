@@ -2,11 +2,14 @@ import React from 'react';
 import * as Style from './styled';
 
 interface TextColumnBox {
-  children: string;
+  children: {
+    id: number;
+    text: string;
+  };
 }
 
 function TextColumnBox({ children }: TextColumnBox) {
-  return <Style.Container>{children}</Style.Container>;
+  return <Style.Container>{children.text}</Style.Container>;
 }
 
 export default TextColumnBox;

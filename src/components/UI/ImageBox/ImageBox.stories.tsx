@@ -6,4 +6,8 @@ export default {
   component: ImageBox,
 };
 
-export const imageBox = () => <ImageBox>https://techstack-generator.vercel.app/react-icon.svg</ImageBox>;
+const data = {
+  id: 1,
+  src: 'https://techstack-generator.vercel.app/react-icon.svg',
+};
+export const imageBox = () => <ImageBox>{data}</ImageBox>;

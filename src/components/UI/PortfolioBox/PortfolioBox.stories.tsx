@@ -7,6 +7,7 @@ export default {
 };
 
 const portfolio: PortfolioInfoType = {
+  id: 1,
   startDate: new Date('2022-01'),
   endDate: new Date('2022-02'),
   explanation: 'portfolio',

@@ -7,6 +7,7 @@ import PortfolioBox, { PortfolioInfoType } from '.';
 
 describe('Component/UI/PortfolioBox', () => {
   const portfolio: PortfolioInfoType = {
+    id: 1,
     startDate: new Date('2022-01'),
     endDate: new Date('2022-02'),
     explanation: 'explanation',

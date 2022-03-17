@@ -6,4 +6,8 @@ export default {
   component: TextColumnBox,
 };
 
-export const textColumnBox = () => <TextColumnBox>text</TextColumnBox>;
+const data = {
+  id: 1,
+  text: 'text',
+};
+export const textColumnBox = () => <TextColumnBox>{data}</TextColumnBox>;

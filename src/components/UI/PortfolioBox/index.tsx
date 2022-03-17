@@ -2,6 +2,7 @@ import React from 'react';
 import * as Style from './styled';
 
 export interface PortfolioInfoType {
+  id: number;
   startDate: Date;
   endDate: Date;
   explanation: string;

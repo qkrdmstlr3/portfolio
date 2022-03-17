@@ -6,8 +6,8 @@ export default {
   component: CenterBox,
 };
 
-export const centerBox = () => (
-  <CenterBox>
-    <>centerbox</>
-  </CenterBox>
-);
+const data = {
+  id: 1,
+  text: 'centerbox',
+};
+export const centerBox = () => <CenterBox>{data}</CenterBox>;
