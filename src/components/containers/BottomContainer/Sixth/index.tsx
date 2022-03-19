@@ -1,9 +1,9 @@
 import React from 'react';
 import * as Style from './styled';
-import { ScreenType } from '../../../templates/main/index';
+import { ScreenType } from '../../../templates/MainTemplate';
 import Icon from '../../../UI/Icon';
 import color from '../../../../style/color';
-import { portfolios } from '../../../../constants';
+import { portfolios } from '../../../../constants/portfolio';
 
 interface SixthProps {
   screen: ScreenType;

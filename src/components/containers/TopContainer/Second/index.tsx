@@ -2,7 +2,7 @@ import React from 'react';
 import * as Style from './styled';
 import { ScreenType } from '../../../templates/MainTemplate';
 import SkillBox from '../../../UI/SkillBox';
-import { experiences, portfolios } from '../../../../constants';
+import { experiences, portfolios } from '../../../../constants/portfolio';
 import Carousel from '../../../UI/Carousel';
 import TextColumnBox from '../../../UI/TextColumnBox/index';
 import ImageBox from '../../../UI/ImageBox';

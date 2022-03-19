@@ -3,7 +3,7 @@ import TopContainer from '../../containers/TopContainer';
 import MiddleContainer from '../../containers/MiddleContainer';
 import BottomContainer from '../../containers/BottomContainer';
 import * as Style from './styled';
-import { portfolios, experiences } from '../../../constants';
+import { portfolios, experiences } from '../../../constants/portfolio';
 import { CHANGE_SCREEN_SECOND, SLIDER_SECOND } from '../../../constants/variables';
 
 export type ScreenType = 'main' | 'portfolio' | 'skill' | 'contact' | 'experience';

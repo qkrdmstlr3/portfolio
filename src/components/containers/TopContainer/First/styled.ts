@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { CHANGE_SCREEN_SECOND } from '../../../../constants/variables';
-import { ScreenType } from '../../../templates/main/index';
+import { ScreenType } from '../../../templates/MainTemplate';
 import { screenSelector } from './style-selector';
 
 interface ContainerProps {

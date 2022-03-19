@@ -4,7 +4,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import MiddleContainer from '.';
-import { experiences, portfolios } from '../../../constants';
+import { experiences, portfolios } from '../../../constants/portfolio';
 
 describe('Component/Container/MiddleContainer', () => {
   describe('rendering test', () => {

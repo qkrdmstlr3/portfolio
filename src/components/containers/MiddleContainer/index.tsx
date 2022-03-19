@@ -3,7 +3,7 @@ import { ScreenType } from '../../templates/MainTemplate';
 import * as Style from './styled';
 import Carousel from '../../UI/Carousel';
 import CenterBox from '../../UI/CenterBox/index';
-import { experiences, portfolios } from '../../../constants';
+import { experiences, portfolios } from '../../../constants/portfolio';
 import { SLIDER_SECOND } from '../../../constants/variables';
 
 interface MiddleContainerProps {

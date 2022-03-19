@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { CHANGE_SCREEN_SECOND } from '../../../../constants/variables';
 import color from '../../../../style/color';
-import { ScreenType } from '../../../templates/main/index';
+import { ScreenType } from '../../../templates/MainTemplate';
 import { topSelector, bottomSelector } from './style-selector';
 
 interface ScreenProps {

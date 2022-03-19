@@ -4,7 +4,7 @@ import * as Style from './styled';
 import SkillBox from '../../../UI/SkillBox';
 import Carousel from '../../../UI/Carousel';
 import CenterBox from '../../../UI/CenterBox';
-import { experiences, portfolios } from '../../../../constants';
+import { experiences, portfolios } from '../../../../constants/portfolio';
 import ImageBox from '../../../UI/ImageBox';
 import PortfolioBox from '../../../UI/PortfolioBox/index';
 import { SLIDER_SECOND } from '../../../../constants/variables';
