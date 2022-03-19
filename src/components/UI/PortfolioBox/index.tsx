@@ -13,10 +13,13 @@ interface PortfolioBoxProps {
 }
 
 function PortfolioBox({ children: { startDate, endDate, explanation } }: PortfolioBoxProps) {
+  const startDateString = startDate.toISOString().slice(0, 9);
+  const endDateString = endDate.toISOString().slice(0, 9);
+
   return (
     <Style.Container>
       <Style.Date aria-label="date">
-        {startDate.toISOString().slice(0, 9)} / {endDate.toISOString().slice(0, 9)}
+        {startDateString} / {endDateString}
       </Style.Date>
       <Style.Explanation>{explanation}</Style.Explanation>
     </Style.Container>

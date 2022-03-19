@@ -2,10 +2,6 @@ import styled from '@emotion/styled';
 
 interface SliderListProps {
   ulPixel: number;
-}
-
-interface BoxProps {
-  boxWidth: number;
   transitionOff: boolean;
 }
 
@@ -26,15 +22,10 @@ export const CarouselList = styled.div<SliderListProps>`
   left: -${(props) => props.ulPixel}px;
   height: 100%;
   width: 100%;
+  transition: ${(props) => (props.transitionOff ? 'none' : `all 1s linear`)};
 `;
 
 export const CarouselItem = styled.div`
   min-width: 100%;
   height: 100%;
-`;
-
-export const Box = styled.div<BoxProps>`
-  height: 100%;
-  min-width: ${(props) => props.boxWidth}px;
-  transition: ${(props) => (props.transitionOff ? 'none' : `all 1s linear`)};
 `;

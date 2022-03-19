@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useLayoutEffect, useState } from 'react';
 import * as Style from './styled';
 
 interface ItemType {
@@ -18,43 +18,33 @@ interface CarouselExpProps<T> {
  */
 function Carousel<T extends object>({ items, second, carouselIndex, Component }: CarouselExpProps<T>) {
   const carouselRef = useRef<HTMLDivElement>();
-  const [boxWidth, setBoxWidth] = useState<number>(0);
   const [ulPixel, setUlPixel] = useState<number>(0);
   const [transitionOff, setTransitionOff] = useState<boolean>(true);
-  const [firstRendering, setFirstRendering] = useState<boolean>(true);
 
   const changeXPixelToZero = () => {
-    const itemWidth = carouselRef.current.offsetWidth;
-    const UlPixel = itemWidth * (items.length + 1);
-    setBoxWidth(UlPixel);
     setTransitionOff(true);
+    setUlPixel(0.1); // 30번째 줄의 if문에 걸리는 것을 방지
   };
 
   useEffect(() => {
+    if (ulPixel === 0) return; // 제일 첫 렌더링 시 무시
     if (carouselIndex + 1 === items.length) {
       setTimeout(changeXPixelToZero, (second * 1000) / 2);
     }
 
     const itemWidth = carouselRef.current.offsetWidth;
-    const UlPixel = itemWidth * (items.length + 1);
-    setBoxWidth(UlPixel - carouselIndex * itemWidth - itemWidth);
-
-    if (firstRendering) {
-      setFirstRendering(!firstRendering);
-      return;
-    }
+    setUlPixel((carouselIndex + 1) * itemWidth);
     setTransitionOff(false);
   }, [carouselIndex]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const itemWidth = carouselRef.current.offsetWidth;
-    setUlPixel(itemWidth * (items.length + 1));
+    setUlPixel(itemWidth);
   }, []);
 
   return (
     <Style.CarouselWrapper ref={carouselRef}>
-      <Style.CarouselList ulPixel={ulPixel}>
-        <Style.Box boxWidth={boxWidth} transitionOff={transitionOff} />
+      <Style.CarouselList ulPixel={ulPixel} transitionOff={transitionOff}>
         <Style.CarouselItem>
           <Component>{items[items.length - 1]}</Component>
         </Style.CarouselItem>
