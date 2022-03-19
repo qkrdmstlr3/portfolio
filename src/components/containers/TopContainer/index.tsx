@@ -3,24 +3,23 @@ import First from './First';
 import Second from './Second';
 import * as Style from './styled';
 import Third from './Third';
-import { ScreenType } from '../../templates/main/index';
+import useScreen from '../../../hooks/useScreen';
 
 interface TopContainerProps {
-  screen: ScreenType;
-  changing: boolean;
   carouselIndex: number;
-  changeScreen: (screen: ScreenType) => void;
 }
 
-function TopContainer({ screen, changing, carouselIndex, changeScreen }: TopContainerProps) {
+function TopContainer({ carouselIndex }: TopContainerProps) {
+  const { screen } = useScreen({});
+
   return (
-    <Style.Container screen={screen}>
+    <Style.Container screen={screen.currentScreen}>
       <Style.Left>
-        <First screen={screen} />
-        <Second carouselIndex={carouselIndex} changing={changing} screen={screen} changeScreen={changeScreen} />
+        <First />
+        <Second carouselIndex={carouselIndex} />
       </Style.Left>
       <Style.Right>
-        <Third screen={screen} changeScreen={changeScreen} />
+        <Third />
       </Style.Right>
     </Style.Container>
   );

@@ -3,24 +3,23 @@ import Fifth from './Fifth';
 import Seventh from './Seventh';
 import Sixth from './Sixth';
 import * as Style from './styled';
-import { ScreenType } from '../../templates/main/index';
+import useScreen from '../../../hooks/useScreen';
 
 interface BottomContainerProps {
-  screen: ScreenType;
-  changing: boolean;
   carouselIndex: number;
-  changeScreen: (screen: ScreenType) => void;
 }
 
-function BottomContainer({ screen, changing, carouselIndex, changeScreen }: BottomContainerProps) {
+function BottomContainer({ carouselIndex }: BottomContainerProps) {
+  const { screen } = useScreen({});
+
   return (
-    <Style.Container screen={screen}>
-      <Style.Top screen={screen}>
-        <Fifth carouselIndex={carouselIndex} changing={changing} screen={screen} changeScreen={changeScreen} />
+    <Style.Container screen={screen.currentScreen}>
+      <Style.Top screen={screen.currentScreen}>
+        <Fifth carouselIndex={carouselIndex} />
       </Style.Top>
-      <Style.Bottom screen={screen}>
-        <Sixth changing={changing} screen={screen} carouselIndex={carouselIndex} />
-        <Seventh changeScreen={changeScreen} />
+      <Style.Bottom screen={screen.currentScreen}>
+        <Sixth carouselIndex={carouselIndex} />
+        <Seventh />
       </Style.Bottom>
     </Style.Container>
   );

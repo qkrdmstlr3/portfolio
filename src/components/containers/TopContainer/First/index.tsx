@@ -1,14 +1,12 @@
 import React from 'react';
-import { ScreenType } from '../../../templates/main';
 import * as Style from './styled';
+import useScreen from '../../../../hooks/useScreen';
 
-interface FirstProps {
-  screen: ScreenType;
-}
+function First() {
+  const { screen } = useScreen({});
 
-function First({ screen }: FirstProps) {
   return (
-    <Style.Container aria-label="first-container" screen={screen}>
+    <Style.Container aria-label="first-container" screen={screen.currentScreen}>
       <Style.Left />
       <Style.Right />
     </Style.Container>

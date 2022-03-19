@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Style from './styled';
-import { ScreenType } from '../../../templates/MainTemplate';
+import useScreen from '../../../../hooks/useScreen';
 import SkillBox from '../../../UI/SkillBox';
 import { experiences, portfolios } from '../../../../constants/portfolio';
 import Carousel from '../../../UI/Carousel';
@@ -9,13 +9,11 @@ import ImageBox from '../../../UI/ImageBox';
 import { SLIDER_SECOND } from '../../../../constants/variables';
 
 interface SecondProps {
-  screen: ScreenType;
-  changing: boolean;
   carouselIndex: number;
-  changeScreen: (screen: ScreenType) => void;
 }
 
-function Second({ screen, changing, carouselIndex, changeScreen }: SecondProps) {
+function Second({ carouselIndex }: SecondProps) {
+  const { screen, changeScreen } = useScreen({ screenWantedToChange: 'contact' });
   // FIXME:
   const middleSkills = [
     'https://techstack-generator.vercel.app/react-icon.svg',
@@ -29,13 +27,13 @@ function Second({ screen, changing, carouselIndex, changeScreen }: SecondProps) 
   ];
 
   return (
-    <Style.Container aria-label="second-container" screen={screen}>
+    <Style.Container aria-label="second-container" screen={screen.currentScreen}>
       <Style.Left>
-        <Style.LeftTop aria-label="second-left-top" onClick={() => changeScreen('contact')}>
+        <Style.LeftTop aria-label="second-left-top" onClick={changeScreen}>
           <Style.Title>contact</Style.Title>
         </Style.LeftTop>
         <Style.LeftBottom>
-          {!changing && screen === 'portfolio' && (
+          {!screen.changing && screen.currentScreen === 'portfolio' && (
             <Carousel
               second={SLIDER_SECOND}
               items={portfolios.map((port, index) => ({ id: index, src: port.logo }))}
@@ -46,8 +44,8 @@ function Second({ screen, changing, carouselIndex, changeScreen }: SecondProps) 
         </Style.LeftBottom>
       </Style.Left>
       <Style.Middle>
-        {!changing && screen === 'skill' && <SkillBox skills={middleSkills} align="column" />}
-        {!changing && screen === 'experience' && (
+        {!screen.changing && screen.currentScreen === 'skill' && <SkillBox skills={middleSkills} align="column" />}
+        {!screen.changing && screen.currentScreen === 'experience' && (
           <Carousel
             second={SLIDER_SECOND}
             items={experiences.map((exp, index) => ({
@@ -60,8 +58,8 @@ function Second({ screen, changing, carouselIndex, changeScreen }: SecondProps) 
         )}
       </Style.Middle>
       <Style.Right>
-        {!changing && screen === 'skill' && <SkillBox skills={rightSkills} align="column" />}
-        {!changing && screen === 'experience' && (
+        {!screen.changing && screen.currentScreen === 'skill' && <SkillBox skills={rightSkills} align="column" />}
+        {!screen.changing && screen.currentScreen === 'experience' && (
           <Carousel
             second={SLIDER_SECOND}
             items={experiences.map((exp, index) => ({ id: index, text: exp.endDate.toLocaleDateString().slice(0, 9) }))}

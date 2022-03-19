@@ -1,19 +1,16 @@
 import React from 'react';
 import * as Style from './styled';
-import { ScreenType } from '../../../templates/main/index';
+import useScreen from '../../../../hooks/useScreen';
 
-interface ThirdProps {
-  screen: ScreenType;
-  changeScreen: (screen: ScreenType) => void;
-}
+function Third() {
+  const { screen, changeScreen } = useScreen({ screenWantedToChange: 'portfolio' });
 
-function Third({ screen, changeScreen }: ThirdProps) {
   return (
     <Style.Container>
-      <Style.Top aria-label="third-top" screen={screen} onClick={() => changeScreen('portfolio')}>
+      <Style.Top aria-label="third-top" screen={screen.currentScreen} onClick={changeScreen}>
         <Style.Title>portfolio</Style.Title>
       </Style.Top>
-      <Style.Bottom aria-label="third-bottom" screen={screen} />
+      <Style.Bottom aria-label="third-bottom" screen={screen.currentScreen} />
     </Style.Container>
   );
 }

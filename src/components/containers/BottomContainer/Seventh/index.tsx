@@ -1,15 +1,13 @@
 import React from 'react';
 import * as Style from './styled';
-import { ScreenType } from '../../../templates/main';
+import useScreen from '../../../../hooks/useScreen';
 
-interface SeventhProps {
-  changeScreen: (screen: ScreenType) => void;
-}
+function Seventh() {
+  const { changeScreen } = useScreen({ screenWantedToChange: 'skill' });
 
-function Seventh({ changeScreen }: SeventhProps) {
   return (
     <Style.Container>
-      <Style.Top aria-label="seventh-top" onClick={() => changeScreen('skill')}>
+      <Style.Top aria-label="seventh-top" onClick={changeScreen}>
         <Style.Title>skill</Style.Title>
       </Style.Top>
       <Style.Bottom />

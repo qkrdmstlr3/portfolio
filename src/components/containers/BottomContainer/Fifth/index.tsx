@@ -1,6 +1,6 @@
 import React from 'react';
-import { ScreenType } from '../../../templates/MainTemplate';
 import * as Style from './styled';
+import useScreen from '../../../../hooks/useScreen';
 import SkillBox from '../../../UI/SkillBox';
 import Carousel from '../../../UI/Carousel';
 import CenterBox from '../../../UI/CenterBox';
@@ -10,13 +10,11 @@ import PortfolioBox from '../../../UI/PortfolioBox/index';
 import { SLIDER_SECOND } from '../../../../constants/variables';
 
 interface FifthProps {
-  screen: ScreenType;
-  changing: boolean;
   carouselIndex: number;
-  changeScreen: (screen: ScreenType) => void;
 }
 
-function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
+function Fifth({ carouselIndex }: FifthProps) {
+  const { screen, changeScreen } = useScreen({ screenWantedToChange: 'experience' });
   const middleTopSkills = [
     'https://techstack-generator.vercel.app/js-icon.svg',
     'https://techstack-generator.vercel.app/ts-icon.svg',
@@ -30,13 +28,15 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
 
   return (
     <Style.Container>
-      <Style.Left aria-label="fifth-left" screen={screen} onClick={() => changeScreen('experience')}>
-        <Style.Title>{screen === 'experience' || screen === 'portfolio' ? 'exp' : 'experience'}</Style.Title>
+      <Style.Left aria-label="fifth-left" screen={screen.currentScreen} onClick={changeScreen}>
+        <Style.Title>
+          {screen.currentScreen === 'experience' || screen.currentScreen === 'portfolio' ? 'exp' : 'experience'}
+        </Style.Title>
       </Style.Left>
-      <Style.Middle aria-label="fifth-mid" screen={screen}>
+      <Style.Middle aria-label="fifth-mid" screen={screen.currentScreen}>
         <Style.MiddleTop>
-          {!changing && screen === 'skill' && <SkillBox skills={middleTopSkills} align="row" />}
-          {!changing && screen === 'experience' && (
+          {!screen.changing && screen.currentScreen === 'skill' && <SkillBox skills={middleTopSkills} align="row" />}
+          {!screen.changing && screen.currentScreen === 'experience' && (
             <Carousel
               items={experiences.map((exp, index) => ({ id: index, text: exp.firstExplanation }))}
               second={SLIDER_SECOND}
@@ -44,7 +44,7 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
               Component={CenterBox}
             />
           )}
-          {!changing && screen === 'portfolio' && (
+          {!screen.changing && screen.currentScreen === 'portfolio' && (
             <Carousel
               second={SLIDER_SECOND}
               items={portfolios.map((port, index) => ({
@@ -59,8 +59,8 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
           )}
         </Style.MiddleTop>
         <Style.MiddleBottom>
-          {!changing && screen === 'skill' && <SkillBox skills={middleBottomSkills} align="row" />}
-          {!changing && screen === 'experience' && (
+          {!screen.changing && screen.currentScreen === 'skill' && <SkillBox skills={middleBottomSkills} align="row" />}
+          {!screen.changing && screen.currentScreen === 'experience' && (
             <Carousel
               items={experiences.map((exp, index) => ({ id: index, text: exp.secondExplanation }))}
               second={SLIDER_SECOND}
@@ -68,7 +68,7 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
               Component={CenterBox}
             />
           )}
-          {!changing && screen === 'portfolio' && (
+          {!screen.changing && screen.currentScreen === 'portfolio' && (
             <Carousel
               second={SLIDER_SECOND}
               items={portfolios.map((port, index) => ({ id: index, src: port.imgLink }))}
@@ -78,7 +78,7 @@ function Fifth({ screen, changing, carouselIndex, changeScreen }: FifthProps) {
           )}
         </Style.MiddleBottom>
       </Style.Middle>
-      <Style.Right aria-label="fifth-right" screen={screen} />
+      <Style.Right aria-label="fifth-right" screen={screen.currentScreen} />
     </Style.Container>
   );
 }
