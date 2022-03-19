@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { RecoilRoot } from 'recoil';
 import GlobalStyle from '../../../style/GlobalStyle';
 import Helmet from '../../../lib/Helmet';
 
@@ -17,11 +18,11 @@ function PageContainer({ children }: PageLayoutProps) {
   }, []);
 
   return (
-    <>
+    <RecoilRoot>
       <GlobalStyle />
       <Helmet />
       {children}
-    </>
+    </RecoilRoot>
   );
 }
 
