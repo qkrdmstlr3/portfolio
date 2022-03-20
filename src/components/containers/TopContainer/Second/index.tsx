@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import * as Style from './styled';
 import useScreen from '../../../../hooks/useScreen';
 import SkillBox from '../../../UI/SkillBox';
-import { experiences, portfolios } from '../../../../constants/portfolio';
+import { experiences, portfolios, skills } from '../../../../constants/portfolio';
 import Carousel from '../../../UI/Carousel';
 import TextColumnBox from '../../../UI/TextColumnBox/index';
 import ImageBox from '../../../UI/ImageBox';
@@ -13,17 +13,8 @@ import { carouselIndexState } from '../../../../recoil/carousel/atom';
 function Second() {
   const carouselIndex = useRecoilValue(carouselIndexState);
   const { screen, changeScreen } = useScreen({ screenWantedToChange: 'contact' });
-  // FIXME:
-  const middleSkills = [
-    'https://techstack-generator.vercel.app/react-icon.svg',
-    'https://techstack-generator.vercel.app/redux-icon.svg',
-    'https://techstack-generator.vercel.app/gatsby-icon.svg',
-  ];
-  const rightSkills = [
-    'https://techstack-generator.vercel.app/sass-icon.svg',
-    'https://techstack-generator.vercel.app/restapi-icon.svg',
-    'https://techstack-generator.vercel.app/github-icon.svg',
-  ];
+  const middleSkills = useMemo(() => skills.slice(0, 3), []);
+  const rightSkills = useMemo(() => skills.slice(3, 6), []);
 
   return (
     <Style.Container aria-label="second-container" screen={screen.currentScreen}>

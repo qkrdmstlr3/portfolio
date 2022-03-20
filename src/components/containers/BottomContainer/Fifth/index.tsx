@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import * as Style from './styled';
 import useScreen from '../../../../hooks/useScreen';
 import SkillBox from '../../../UI/SkillBox';
 import Carousel from '../../../UI/Carousel';
 import CenterBox from '../../../UI/CenterBox';
-import { experiences, portfolios } from '../../../../constants/portfolio';
+import { experiences, portfolios, skills } from '../../../../constants/portfolio';
 import ImageBox from '../../../UI/ImageBox';
 import PortfolioBox from '../../../UI/PortfolioBox/index';
 import { SLIDER_SECOND } from '../../../../constants/variables';
@@ -14,16 +14,8 @@ import { carouselIndexState } from '../../../../recoil/carousel/atom';
 function Fifth() {
   const carouselIndex = useRecoilValue(carouselIndexState);
   const { screen, changeScreen } = useScreen({ screenWantedToChange: 'experience' });
-  const middleTopSkills = [
-    'https://techstack-generator.vercel.app/js-icon.svg',
-    'https://techstack-generator.vercel.app/ts-icon.svg',
-    'https://techstack-generator.vercel.app/rescript-icon.svg',
-  ];
-  const middleBottomSkills = [
-    'https://techstack-generator.vercel.app/storybook-icon.svg',
-    'https://techstack-generator.vercel.app/jest-icon.svg',
-    'https://techstack-generator.vercel.app/testinglibrary-icon.svg',
-  ];
+  const middleTopSkills = useMemo(() => skills.slice(6, 9), []);
+  const middleBottomSkills = useMemo(() => skills.slice(9), []);
 
   return (
     <Style.Container>

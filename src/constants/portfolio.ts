@@ -83,3 +83,25 @@ export const portfolios: PortfolioType[] = [
     githubLink: 'https://github.com/qkrdmstlr3/techstack-generator',
   },
 ];
+
+export const skills = [
+  'https://techstack-generator.vercel.app/react-icon.svg',
+  'https://techstack-generator.vercel.app/redux-icon.svg',
+  'https://techstack-generator.vercel.app/gatsby-icon.svg',
+  'https://techstack-generator.vercel.app/sass-icon.svg',
+  'https://techstack-generator.vercel.app/restapi-icon.svg',
+  'https://techstack-generator.vercel.app/github-icon.svg',
+  'https://techstack-generator.vercel.app/js-icon.svg',
+  'https://techstack-generator.vercel.app/ts-icon.svg',
+  'https://techstack-generator.vercel.app/rescript-icon.svg',
+  'https://techstack-generator.vercel.app/storybook-icon.svg',
+  'https://techstack-generator.vercel.app/jest-icon.svg',
+  'https://techstack-generator.vercel.app/testinglibrary-icon.svg',
+];
+
+export const mylink = {
+  github: 'https://github.com/qkrdmstlr3',
+  blog: 'https://shellboylog.com',
+  linkedin: 'https://www.linkedin.com/in/eunsik-park-34a7931b6/',
+  email: 'mailto:qkrdmstlr3@naver.com',
+};
