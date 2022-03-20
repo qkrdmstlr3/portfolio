@@ -1,15 +1,14 @@
 import React from 'react';
+import { useRecoilValue } from 'recoil';
 import * as Style from './styled';
 import Icon from '../../../UI/Icon';
 import color from '../../../../style/color';
 import { portfolios } from '../../../../constants/portfolio';
 import useScreen from '../../../../hooks/useScreen';
+import { carouselIndexState } from '../../../../recoil/carousel/atom';
 
-interface SixthProps {
-  carouselIndex: number;
-}
-
-function Sixth({ carouselIndex }: SixthProps) {
+function Sixth() {
+  const carouselIndex = useRecoilValue(carouselIndexState);
   const { screen } = useScreen({});
   const githubLink =
     screen.currentScreen === 'contact' ? 'https://github.com/qkrdmstlr3' : portfolios[carouselIndex].githubLink;

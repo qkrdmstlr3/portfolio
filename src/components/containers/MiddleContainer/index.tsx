@@ -1,16 +1,15 @@
 import React from 'react';
+import { useRecoilValue } from 'recoil';
 import useScreen from '../../../hooks/useScreen';
 import * as Style from './styled';
 import Carousel from '../../UI/Carousel';
 import CenterBox from '../../UI/CenterBox/index';
 import { experiences, portfolios } from '../../../constants/portfolio';
 import { SLIDER_SECOND } from '../../../constants/variables';
+import { carouselIndexState } from '../../../recoil/carousel/atom';
 
-interface MiddleContainerProps {
-  carouselIndex: number;
-}
-
-function MiddleContainer({ carouselIndex }: MiddleContainerProps) {
+function MiddleContainer() {
+  const carouselIndex = useRecoilValue(carouselIndexState);
   const { screen } = useScreen({});
 
   return (

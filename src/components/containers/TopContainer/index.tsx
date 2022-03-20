@@ -5,18 +5,14 @@ import * as Style from './styled';
 import Third from './Third';
 import useScreen from '../../../hooks/useScreen';
 
-interface TopContainerProps {
-  carouselIndex: number;
-}
-
-function TopContainer({ carouselIndex }: TopContainerProps) {
+function TopContainer() {
   const { screen } = useScreen({});
 
   return (
     <Style.Container screen={screen.currentScreen}>
       <Style.Left>
         <First />
-        <Second carouselIndex={carouselIndex} />
+        <Second />
       </Style.Left>
       <Style.Right>
         <Third />

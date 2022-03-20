@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRecoilValue } from 'recoil';
 import * as Style from './styled';
 import useScreen from '../../../../hooks/useScreen';
 import SkillBox from '../../../UI/SkillBox';
@@ -8,12 +9,10 @@ import { experiences, portfolios } from '../../../../constants/portfolio';
 import ImageBox from '../../../UI/ImageBox';
 import PortfolioBox from '../../../UI/PortfolioBox/index';
 import { SLIDER_SECOND } from '../../../../constants/variables';
+import { carouselIndexState } from '../../../../recoil/carousel/atom';
 
-interface FifthProps {
-  carouselIndex: number;
-}
-
-function Fifth({ carouselIndex }: FifthProps) {
+function Fifth() {
+  const carouselIndex = useRecoilValue(carouselIndexState);
   const { screen, changeScreen } = useScreen({ screenWantedToChange: 'experience' });
   const middleTopSkills = [
     'https://techstack-generator.vercel.app/js-icon.svg',

@@ -5,20 +5,16 @@ import Sixth from './Sixth';
 import * as Style from './styled';
 import useScreen from '../../../hooks/useScreen';
 
-interface BottomContainerProps {
-  carouselIndex: number;
-}
-
-function BottomContainer({ carouselIndex }: BottomContainerProps) {
+function BottomContainer() {
   const { screen } = useScreen({});
 
   return (
     <Style.Container screen={screen.currentScreen}>
       <Style.Top screen={screen.currentScreen}>
-        <Fifth carouselIndex={carouselIndex} />
+        <Fifth />
       </Style.Top>
       <Style.Bottom screen={screen.currentScreen}>
-        <Sixth carouselIndex={carouselIndex} />
+        <Sixth />
         <Seventh />
       </Style.Bottom>
     </Style.Container>

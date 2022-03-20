@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRecoilValue } from 'recoil';
 import * as Style from './styled';
 import useScreen from '../../../../hooks/useScreen';
 import SkillBox from '../../../UI/SkillBox';
@@ -7,12 +8,10 @@ import Carousel from '../../../UI/Carousel';
 import TextColumnBox from '../../../UI/TextColumnBox/index';
 import ImageBox from '../../../UI/ImageBox';
 import { SLIDER_SECOND } from '../../../../constants/variables';
+import { carouselIndexState } from '../../../../recoil/carousel/atom';
 
-interface SecondProps {
-  carouselIndex: number;
-}
-
-function Second({ carouselIndex }: SecondProps) {
+function Second() {
+  const carouselIndex = useRecoilValue(carouselIndexState);
   const { screen, changeScreen } = useScreen({ screenWantedToChange: 'contact' });
   // FIXME:
   const middleSkills = [
