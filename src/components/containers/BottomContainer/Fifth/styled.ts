@@ -42,13 +42,7 @@ export const Middle = styled.div<ScreenProps>`
   ${(props) => middleSelector[props.screen]};
 `;
 
-export const MiddleTop = styled.div`
-  width: 100%;
-  height: 50%;
-  border: 2px solid black;
-`;
-
-export const MiddleBottom = styled.div`
+export const MiddleRow = styled.div`
   width: 100%;
   height: 50%;
   border: 2px solid black;

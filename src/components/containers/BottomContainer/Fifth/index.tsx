@@ -1,15 +1,15 @@
+// Dependencies
 import React, { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import * as Style from './styled';
 import useScreen from '../../../../hooks/useScreen';
-import SkillBox from '../../../UI/SkillBox';
-import Carousel from '../../../UI/Carousel';
-import CenterBox from '../../../UI/CenterBox';
-import { experiences, portfolios, skills } from '../../../../constants/portfolio';
+// Components
+import Row from './Row';
 import ImageBox from '../../../UI/ImageBox';
 import PortfolioBox from '../../../UI/PortfolioBox/index';
-import { SLIDER_SECOND } from '../../../../constants/variables';
+// Variables & Types
 import { carouselIndexState } from '../../../../recoil/carousel/atom';
+import { experiences, portfolios, skills } from '../../../../constants/portfolio';
 
 function Fifth() {
   const carouselIndex = useRecoilValue(carouselIndexState);
@@ -25,49 +25,27 @@ function Fifth() {
         </Style.Title>
       </Style.Left>
       <Style.Middle aria-label="fifth-mid" screen={screen.currentScreen}>
-        <Style.MiddleTop>
-          {!screen.changing && screen.currentScreen === 'skill' && <SkillBox skills={middleTopSkills} align="row" />}
-          {!screen.changing && screen.currentScreen === 'experience' && (
-            <Carousel
-              items={experiences.map((exp, index) => ({ id: index, text: exp.firstExplanation }))}
-              second={SLIDER_SECOND}
-              carouselIndex={carouselIndex}
-              Component={CenterBox}
-            />
-          )}
-          {!screen.changing && screen.currentScreen === 'portfolio' && (
-            <Carousel
-              second={SLIDER_SECOND}
-              items={portfolios.map((port, index) => ({
-                id: index,
-                startDate: port.startDate,
-                endDate: port.endDate,
-                explanation: port.explanation,
-              }))}
-              carouselIndex={carouselIndex}
-              Component={PortfolioBox}
-            />
-          )}
-        </Style.MiddleTop>
-        <Style.MiddleBottom>
-          {!screen.changing && screen.currentScreen === 'skill' && <SkillBox skills={middleBottomSkills} align="row" />}
-          {!screen.changing && screen.currentScreen === 'experience' && (
-            <Carousel
-              items={experiences.map((exp, index) => ({ id: index, text: exp.secondExplanation }))}
-              second={SLIDER_SECOND}
-              carouselIndex={carouselIndex}
-              Component={CenterBox}
-            />
-          )}
-          {!screen.changing && screen.currentScreen === 'portfolio' && (
-            <Carousel
-              second={SLIDER_SECOND}
-              items={portfolios.map((port, index) => ({ id: index, src: port.imgLink }))}
-              carouselIndex={carouselIndex}
-              Component={ImageBox}
-            />
-          )}
-        </Style.MiddleBottom>
+        <Row
+          screen={screen}
+          skills={middleTopSkills}
+          carouselIndex={carouselIndex}
+          fItems={experiences.map((exp, index) => ({ id: index, text: exp.firstExplanation }))}
+          sItems={portfolios.map((port, index) => ({
+            id: index,
+            startDate: port.startDate,
+            endDate: port.endDate,
+            explanation: port.explanation,
+          }))}
+          Component={PortfolioBox}
+        />
+        <Row
+          screen={screen}
+          skills={middleBottomSkills}
+          carouselIndex={carouselIndex}
+          fItems={experiences.map((exp, index) => ({ id: index, text: exp.secondExplanation }))}
+          sItems={portfolios.map((port, index) => ({ id: index, src: port.imgLink }))}
+          Component={ImageBox}
+        />
       </Style.Middle>
       <Style.Right aria-label="fifth-right" screen={screen.currentScreen} />
     </Style.Container>
