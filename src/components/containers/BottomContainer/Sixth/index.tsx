@@ -16,26 +16,26 @@ function Sixth() {
   return (
     <Style.Container>
       <Style.BlackBox aria-label="sixth-black" screen={screen.currentScreen} />
-      <Style.FirstBox aria-label="sixth-first" screen={screen.currentScreen}>
+      <Style.FrontBox aria-label="sixth-first" screen={screen.currentScreen}>
         {!screen.changing && (screen.currentScreen === 'contact' || screen.currentScreen === 'portfolio') && (
           <Icon icon="github" color={color.black} size="50%" href={githubLink} />
         )}
-      </Style.FirstBox>
-      <Style.SecondBox aria-label="sixth-second" screen={screen.currentScreen}>
+      </Style.FrontBox>
+      <Style.FrontBox aria-label="sixth-second" screen={screen.currentScreen}>
         {!screen.changing && (screen.currentScreen === 'contact' || screen.currentScreen === 'portfolio') && (
           <Icon icon="blog" color={color.black} size="50%" href={blogLink} />
         )}
-      </Style.SecondBox>
-      <Style.ThirdBox aria-label="sixth-third" screen={screen.currentScreen}>
+      </Style.FrontBox>
+      <Style.RearBox aria-label="sixth-third" screen={screen.currentScreen}>
         {!screen.changing && screen.currentScreen === 'contact' && (
           <Icon icon="linkedin" color={color.black} size="50%" href={mylink.linkedin} />
         )}
-      </Style.ThirdBox>
-      <Style.FourthBox aria-label="sixth-fourth" screen={screen.currentScreen}>
+      </Style.RearBox>
+      <Style.RearBox aria-label="sixth-fourth" screen={screen.currentScreen}>
         {!screen.changing && screen.currentScreen === 'contact' && (
           <Icon icon="mail" color={color.black} size="50%" href={mylink.email} />
         )}
-      </Style.FourthBox>
+      </Style.RearBox>
     </Style.Container>
   );
 }

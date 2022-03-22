@@ -21,7 +21,7 @@ export const BlackBox = styled.div<ScreenProps>`
   ${(props) => blackBoxSelector[props.screen]};
 `;
 
-export const FirstBox = styled.div<ScreenProps>`
+export const FrontBox = styled.div<ScreenProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,25 +30,7 @@ export const FirstBox = styled.div<ScreenProps>`
   ${(props) => frontBoxSelector[props.screen]};
 `;
 
-export const SecondBox = styled.div<ScreenProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid black;
-  transition: all ${CHANGE_SCREEN_SECOND}s linear;
-  ${(props) => frontBoxSelector[props.screen]};
-`;
-
-export const ThirdBox = styled.div<ScreenProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid black;
-  transition: all ${CHANGE_SCREEN_SECOND}s linear;
-  ${(props) => rearBoxSelector[props.screen]};
-`;
-
-export const FourthBox = styled.div<ScreenProps>`
+export const RearBox = styled.div<ScreenProps>`
   display: flex;
   align-items: center;
   justify-content: center;
