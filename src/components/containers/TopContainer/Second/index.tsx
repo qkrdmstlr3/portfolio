@@ -2,13 +2,12 @@ import React, { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import * as Style from './styled';
 import useScreen from '../../../../hooks/useScreen';
-import SkillBox from '../../../UI/SkillBox';
 import { experiences, portfolios, skills } from '../../../../constants/portfolio';
 import Carousel from '../../../UI/Carousel';
-import TextColumnBox from '../../../UI/TextColumnBox/index';
 import ImageBox from '../../../UI/ImageBox';
 import { SLIDER_SECOND } from '../../../../constants/variables';
 import { carouselIndexState } from '../../../../recoil/carousel/atom';
+import Column from './Column';
 
 function Second() {
   const carouselIndex = useRecoilValue(carouselIndexState);
@@ -33,31 +32,18 @@ function Second() {
           )}
         </Style.LeftBottom>
       </Style.Left>
-      <Style.Middle>
-        {!screen.changing && screen.currentScreen === 'skill' && <SkillBox skills={middleSkills} align="column" />}
-        {!screen.changing && screen.currentScreen === 'experience' && (
-          <Carousel
-            second={SLIDER_SECOND}
-            items={experiences.map((exp, index) => ({
-              id: index,
-              text: exp.startDate.toLocaleDateString().slice(0, 9),
-            }))}
-            carouselIndex={carouselIndex}
-            Component={TextColumnBox}
-          />
-        )}
-      </Style.Middle>
-      <Style.Right>
-        {!screen.changing && screen.currentScreen === 'skill' && <SkillBox skills={rightSkills} align="column" />}
-        {!screen.changing && screen.currentScreen === 'experience' && (
-          <Carousel
-            second={SLIDER_SECOND}
-            items={experiences.map((exp, index) => ({ id: index, text: exp.endDate.toLocaleDateString().slice(0, 9) }))}
-            carouselIndex={carouselIndex}
-            Component={TextColumnBox}
-          />
-        )}
-      </Style.Right>
+      <Column
+        screen={screen}
+        skills={middleSkills}
+        items={experiences.map((exp, index) => ({ id: index, text: exp.startDate.toLocaleDateString().slice(0, 9) }))}
+        carouselIndex={carouselIndex}
+      />
+      <Column
+        screen={screen}
+        skills={rightSkills}
+        items={experiences.map((exp, index) => ({ id: index, text: exp.endDate.toLocaleDateString().slice(0, 9) }))}
+        carouselIndex={carouselIndex}
+      />
     </Style.Container>
   );
 }

@@ -16,7 +16,7 @@ export const Container = styled.div<ContainerProps>`
 `;
 
 export const Left = styled.div`
-  width: 32%;
+  width: 30%;
   height: 100%;
   overflow: hidden;
 `;
@@ -48,16 +48,9 @@ export const LeftBottom = styled.div`
   border: 2px solid black;
 `;
 
-export const Middle = styled.div`
+export const Column = styled.div`
   overflow: hidden;
-  width: 36%;
-  height: 100%;
-  border: 2px solid black;
-`;
-
-export const Right = styled.div`
-  overflow: hidden;
-  width: 37%;
+  width: 35%;
   height: 100%;
   border: 2px solid black;
 `;
