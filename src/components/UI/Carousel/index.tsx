@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useLayoutEffect, useState } from 'react';
+import CenterBox from '../CenterBox';
 import * as Style from './styled';
 
 interface ItemType {
@@ -8,15 +9,15 @@ interface ItemType {
 interface CarouselExpProps<T> {
   items: (ItemType & T)[];
   second: number;
-  Component: ({ children }) => JSX.Element;
   carouselIndex: number;
+  Component?: ({ children }) => JSX.Element;
 }
 
 /**
  * It have to get CarouselIndex and second as props
  * It is used to sync with other sliders
  */
-function Carousel<T extends object>({ items, second, carouselIndex, Component }: CarouselExpProps<T>) {
+function Carousel<T extends object>({ items, second, carouselIndex, Component = CenterBox }: CarouselExpProps<T>) {
   const carouselRef = useRef<HTMLDivElement>();
   const [ulPixel, setUlPixel] = useState<number>(0);
   const [transitionOff, setTransitionOff] = useState<boolean>(true);
