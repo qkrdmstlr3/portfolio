@@ -18,11 +18,11 @@ export const Top = styled.div<ScreenProps>`
   align-items: center;
   justify-content: center;
 
-  transition: all ${CHANGE_SCREEN_SECOND}ss linear;
   cursor: pointer;
   color: ${color.white};
   background-color: ${color.red};
   border: 2px solid ${color.black};
+  transition: all ${CHANGE_SCREEN_SECOND}s linear;
   ${(props) => topSelector[props.screen]};
 `;
 
@@ -31,7 +31,7 @@ export const Title = styled.h2`
 `;
 
 export const Bottom = styled.div<ScreenProps>`
-  transition: all ${CHANGE_SCREEN_SECOND}ss linear;
   border: 2px solid ${color.black};
+  transition: all ${CHANGE_SCREEN_SECOND}s linear;
   ${(props) => bottomSelector[props.screen]};
 `;

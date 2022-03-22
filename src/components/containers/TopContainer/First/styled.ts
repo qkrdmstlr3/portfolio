@@ -14,13 +14,13 @@ export const Container = styled.div<ContainerProps>`
 `;
 
 export const Left = styled.div`
-  width: 68%;
+  width: 65%;
   height: 100%;
   border: 2px solid black;
 `;
 
 export const Right = styled.div`
-  width: 37%;
+  width: 35%;
   height: 100%;
   border: 2px solid black;
 `;
