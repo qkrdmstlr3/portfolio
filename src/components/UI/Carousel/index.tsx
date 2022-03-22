@@ -44,7 +44,7 @@ function Carousel<T extends object>({ items, second, carouselIndex, Component = 
   }, []);
 
   return (
-    <Style.CarouselWrapper ref={carouselRef}>
+    <Style.CarouselWrapper aria-label="carousel" ref={carouselRef}>
       <Style.CarouselList ulPixel={ulPixel} transitionOff={transitionOff}>
         <Style.CarouselItem>
           <Component>{items[items.length - 1]}</Component>

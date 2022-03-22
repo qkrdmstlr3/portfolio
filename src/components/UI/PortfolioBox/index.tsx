@@ -13,8 +13,8 @@ interface PortfolioBoxProps {
 }
 
 function PortfolioBox({ children: { startDate, endDate, explanation } }: PortfolioBoxProps) {
-  const startDateString = startDate.toISOString().slice(0, 9);
-  const endDateString = endDate.toISOString().slice(0, 9);
+  const startDateString = startDate.toISOString().slice(0, 7);
+  const endDateString = endDate.toISOString().slice(0, 7);
 
   return (
     <Style.Container>

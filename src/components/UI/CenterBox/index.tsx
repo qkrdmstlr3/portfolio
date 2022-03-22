@@ -2,10 +2,7 @@ import React from 'react';
 import * as Style from './styled';
 
 interface CenterBoxProps {
-  children: {
-    id: number;
-    text: string;
-  };
+  children: { id: number; text: string };
 }
 
 function CenterBox({ children }: CenterBoxProps) {

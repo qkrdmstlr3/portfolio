@@ -3,21 +3,17 @@
  */
 import React from 'react';
 import { render } from '@testing-library/react';
-import PortfolioBox, { PortfolioInfoType } from '.';
+import PortfolioBox from '.';
+import { portfolios } from '../../../constants/portfolio';
 
 describe('Component/UI/PortfolioBox', () => {
-  const portfolio: PortfolioInfoType = {
-    id: 1,
-    startDate: new Date('2022-01'),
-    endDate: new Date('2022-02'),
-    explanation: 'explanation',
-  };
+  const portfolio = portfolios[0];
 
   it('rendering test', () => {
-    const component = render(<PortfolioBox>{portfolio}</PortfolioBox>);
+    const component = render(<PortfolioBox>{{ id: 1, ...portfolio }}</PortfolioBox>);
     component.getByText(portfolio.explanation);
     component.getByText(
-      `${portfolio.startDate.toISOString().slice(0, 9)} / ${portfolio.endDate.toISOString().slice(0, 9)}`
+      `${portfolio.startDate.toISOString().slice(0, 7)} / ${portfolio.endDate.toISOString().slice(0, 7)}`
     );
   });
 });
