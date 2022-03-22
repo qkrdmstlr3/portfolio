@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import mq from '../../../../style/mq';
 import color from '../../../../style/color';
-import { ScreenType } from '../../../templates/MainTemplate';
+import { ScreenType } from '../../../../recoil/screen/atom';
 import { screenSelector } from './style-selector';
 import { CHANGE_SCREEN_SECOND } from '../../../../constants/variables';
 

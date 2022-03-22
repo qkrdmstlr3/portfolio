@@ -9,8 +9,6 @@ import { SLIDER_SECOND } from '../../../constants/variables';
 import useScreen from '../../../hooks/useScreen';
 import { carouselIndexState } from '../../../recoil/carousel/atom';
 
-export type ScreenType = 'main' | 'portfolio' | 'skill' | 'contact' | 'experience';
-
 function MainTemplate() {
   const setCarouselIndex = useSetRecoilState(carouselIndexState);
   const { screen } = useScreen({});

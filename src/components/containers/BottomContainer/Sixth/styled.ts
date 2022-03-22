@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { CHANGE_SCREEN_SECOND } from '../../../../constants/variables';
 import color from '../../../../style/color';
-import { ScreenType } from '../../../templates/MainTemplate';
+import { ScreenType } from '../../../../recoil/screen/atom';
 import { blackBoxSelector, frontBoxSelector, rearBoxSelector } from './style-selector';
 
 interface ScreenProps {

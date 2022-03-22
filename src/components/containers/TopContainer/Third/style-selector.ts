@@ -1,5 +1,5 @@
 import { css, SerializedStyles } from '@emotion/react';
-import { ScreenType } from '../../../templates/main';
+import { ScreenType } from '../../../../recoil/screen/atom';
 
 export const topSelector: { [screen in ScreenType]: SerializedStyles } = {
   main: css`
