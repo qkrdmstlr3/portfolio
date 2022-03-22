@@ -1,25 +1,26 @@
 import { css, SerializedStyles } from '@emotion/react';
 import { ScreenType } from '../../../recoil/screen/atom';
+import { SCREEN_SIZE } from '../../../constants/variables';
 
 export const screenSelector: { [screen in ScreenType]: SerializedStyles } = {
   main: css`
-    width: 100%;
-    height: 30%;
+    width: ${SCREEN_SIZE.main.topContainer.width}%;
+    height: ${SCREEN_SIZE.main.topContainer.height}%;
   `,
   skill: css`
-    width: 100%;
-    height: 30%;
+    width: ${SCREEN_SIZE.skill.topContainer.width}%;
+    height: ${SCREEN_SIZE.skill.topContainer.height}%;
   `,
   contact: css`
-    width: 100%;
-    height: 30%;
+    width: ${SCREEN_SIZE.contact.topContainer.width}%;
+    height: ${SCREEN_SIZE.contact.topContainer.height}%;
   `,
   portfolio: css`
-    width: 100%;
-    height: 30%;
+    width: ${SCREEN_SIZE.portfolio.topContainer.width}%;
+    height: ${SCREEN_SIZE.portfolio.topContainer.height}%;
   `,
   experience: css`
-    width: 100%;
-    height: 48%;
+    width: ${SCREEN_SIZE.experience.topContainer.width}%;
+    height: ${SCREEN_SIZE.experience.topContainer.height}%;
   `,
 };
