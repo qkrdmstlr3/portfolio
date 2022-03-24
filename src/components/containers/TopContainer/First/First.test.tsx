@@ -2,13 +2,24 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render } from '../../../../test-utils';
 import First from '.';
+import useScreen from '../../../../hooks/useScreen';
+import { ScreenType } from '../../../../recoil/screen/atom';
+
+jest.mock('../../../../hooks/useScreen.ts');
+const useScreenMock = useScreen as jest.MockedFunction<typeof useScreen>;
+
+const getScreenObj = (currentScreen: ScreenType, changing: boolean) => ({
+  screen: { currentScreen, changing },
+  changeScreen: () => {},
+});
 
 describe('Component/Container/TopContainer/First', () => {
   describe('screen test', () => {
     it('main', () => {
-      const component = render(<First screen="main" />);
+      useScreenMock.mockReturnValue(getScreenObj('main', false));
+      const component = render(<First />);
 
       const container = component.getByLabelText('first-container');
       expect(container).toHaveStyle({
@@ -18,7 +29,8 @@ describe('Component/Container/TopContainer/First', () => {
     });
 
     it('skill', () => {
-      const component = render(<First screen="skill" />);
+      useScreenMock.mockReturnValue(getScreenObj('skill', false));
+      const component = render(<First />);
 
       const container = component.getByLabelText('first-container');
       expect(container).toHaveStyle({
@@ -28,7 +40,8 @@ describe('Component/Container/TopContainer/First', () => {
     });
 
     it('contact', () => {
-      const component = render(<First screen="contact" />);
+      useScreenMock.mockReturnValue(getScreenObj('contact', false));
+      const component = render(<First />);
 
       const container = component.getByLabelText('first-container');
       expect(container).toHaveStyle({
@@ -38,7 +51,8 @@ describe('Component/Container/TopContainer/First', () => {
     });
 
     it('portfolio', () => {
-      const component = render(<First screen="portfolio" />);
+      useScreenMock.mockReturnValue(getScreenObj('portfolio', false));
+      const component = render(<First />);
 
       const container = component.getByLabelText('first-container');
       expect(container).toHaveStyle({
@@ -48,7 +62,8 @@ describe('Component/Container/TopContainer/First', () => {
     });
 
     it('experience', () => {
-      const component = render(<First screen="experience" />);
+      useScreenMock.mockReturnValue(getScreenObj('experience', false));
+      const component = render(<First />);
 
       const container = component.getByLabelText('first-container');
       expect(container).toHaveStyle({
