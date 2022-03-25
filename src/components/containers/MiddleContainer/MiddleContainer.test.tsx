@@ -2,16 +2,27 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render } from '../../../test-utils';
 import MiddleContainer from '.';
 import { experiences, portfolios } from '../../../constants/portfolio';
+import useScreen from '../../../hooks/useScreen';
+import { ScreenType } from '../../../recoil/screen/atom';
+
+jest.mock('../../../hooks/useScreen.ts');
+const changeScreenMock = jest.fn();
+const useScreenMock = useScreen as jest.MockedFunction<typeof useScreen>;
+const carouselIndex = 0;
+
+const getScreenObj = (currentScreen: ScreenType, changing: boolean) => ({
+  screen: { currentScreen, changing },
+  changeScreen: changeScreenMock,
+});
 
 describe('Component/Container/MiddleContainer', () => {
   describe('rendering test', () => {
-    const carouselIndex = 0;
-
     it('main', () => {
-      const component = render(<MiddleContainer screen="main" changing={false} carouselIndex={carouselIndex} />);
+      useScreenMock.mockReturnValue(getScreenObj('main', false));
+      const component = render(<MiddleContainer />);
       const middleContainer = component.getByLabelText('middle-container');
 
       component.getByText('생각을 현실로 구현하는');
@@ -23,7 +34,8 @@ describe('Component/Container/MiddleContainer', () => {
     });
 
     it('skill', () => {
-      const component = render(<MiddleContainer screen="skill" changing={false} carouselIndex={carouselIndex} />);
+      useScreenMock.mockReturnValue(getScreenObj('skill', false));
+      const component = render(<MiddleContainer />);
       const middleContainer = component.getByLabelText('middle-container');
 
       component.getByText('생각을 현실로 구현하는');
@@ -35,7 +47,8 @@ describe('Component/Container/MiddleContainer', () => {
     });
 
     it('contact', () => {
-      const component = render(<MiddleContainer screen="contact" changing={false} carouselIndex={carouselIndex} />);
+      useScreenMock.mockReturnValue(getScreenObj('contact', false));
+      const component = render(<MiddleContainer />);
       const middleContainer = component.getByLabelText('middle-container');
 
       component.getByText('생각을 현실로 구현하는');
@@ -47,7 +60,8 @@ describe('Component/Container/MiddleContainer', () => {
     });
 
     it('portfolio', () => {
-      const component = render(<MiddleContainer screen="portfolio" changing={false} carouselIndex={carouselIndex} />);
+      useScreenMock.mockReturnValue(getScreenObj('portfolio', false));
+      const component = render(<MiddleContainer />);
       const middleContainer = component.getByLabelText('middle-container');
 
       component.getAllByText(portfolios[carouselIndex].title);
@@ -58,7 +72,8 @@ describe('Component/Container/MiddleContainer', () => {
     });
 
     it('experience', () => {
-      const component = render(<MiddleContainer screen="experience" changing={false} carouselIndex={carouselIndex} />);
+      useScreenMock.mockReturnValue(getScreenObj('experience', false));
+      const component = render(<MiddleContainer />);
       const middleContainer = component.getByLabelText('middle-container');
 
       component.getAllByText(experiences[carouselIndex].title);
