@@ -2,19 +2,25 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '../../../../test-utils';
 import Fifth from '.';
+import useScreen from '../../../../hooks/useScreen';
+import { ScreenType } from '../../../../recoil/screen/atom';
 
+jest.mock('../../../../hooks/useScreen.ts');
 const changeScreenMock = jest.fn();
+const useScreenMock = useScreen as jest.MockedFunction<typeof useScreen>;
+
+const getScreenObj = (currentScreen: ScreenType, changing: boolean) => ({
+  screen: { currentScreen, changing },
+  changeScreen: changeScreenMock,
+});
 
 describe('Component/Container/FirstContainer/First', () => {
-  const carouselIndex = 0;
-
   describe('rendering test', () => {
     it('main', () => {
-      const component = render(
-        <Fifth screen="main" changing={false} carouselIndex={carouselIndex} changeScreen={changeScreenMock} />
-      );
+      useScreenMock.mockReturnValue(getScreenObj('main', false));
+      const component = render(<Fifth />);
       const left = component.getByLabelText('fifth-left');
       const mid = component.getByLabelText('fifth-mid');
       const right = component.getByLabelText('fifth-right');
@@ -35,9 +41,8 @@ describe('Component/Container/FirstContainer/First', () => {
     });
 
     it('skill', () => {
-      const component = render(
-        <Fifth screen="skill" changing={false} carouselIndex={carouselIndex} changeScreen={changeScreenMock} />
-      );
+      useScreenMock.mockReturnValue(getScreenObj('skill', false));
+      const component = render(<Fifth />);
       const left = component.getByLabelText('fifth-left');
       const mid = component.getByLabelText('fifth-mid');
       const right = component.getByLabelText('fifth-right');
@@ -58,9 +63,8 @@ describe('Component/Container/FirstContainer/First', () => {
     });
 
     it('contact', () => {
-      const component = render(
-        <Fifth screen="contact" changing={false} carouselIndex={carouselIndex} changeScreen={changeScreenMock} />
-      );
+      useScreenMock.mockReturnValue(getScreenObj('contact', false));
+      const component = render(<Fifth />);
       const left = component.getByLabelText('fifth-left');
       const mid = component.getByLabelText('fifth-mid');
       const right = component.getByLabelText('fifth-right');
@@ -81,9 +85,8 @@ describe('Component/Container/FirstContainer/First', () => {
     });
 
     it('portfolio', () => {
-      const component = render(
-        <Fifth screen="portfolio" changing={false} carouselIndex={carouselIndex} changeScreen={changeScreenMock} />
-      );
+      useScreenMock.mockReturnValue(getScreenObj('portfolio', false));
+      const component = render(<Fifth />);
       const left = component.getByLabelText('fifth-left');
       const mid = component.getByLabelText('fifth-mid');
       const right = component.getByLabelText('fifth-right');
@@ -104,9 +107,8 @@ describe('Component/Container/FirstContainer/First', () => {
     });
 
     it('experience', () => {
-      const component = render(
-        <Fifth screen="experience" changing={false} carouselIndex={carouselIndex} changeScreen={changeScreenMock} />
-      );
+      useScreenMock.mockReturnValue(getScreenObj('experience', false));
+      const component = render(<Fifth />);
       const left = component.getByLabelText('fifth-left');
       const mid = component.getByLabelText('fifth-mid');
       const right = component.getByLabelText('fifth-right');
@@ -128,13 +130,10 @@ describe('Component/Container/FirstContainer/First', () => {
   });
 
   it('change screen', () => {
-    const component = render(
-      <Fifth screen="experience" changing={false} carouselIndex={carouselIndex} changeScreen={changeScreenMock} />
-    );
+    const component = render(<Fifth />);
 
     const fifthLeft = component.getByLabelText('fifth-left');
     fireEvent.click(fifthLeft);
     expect(changeScreenMock).toHaveBeenCalledTimes(1);
-    expect(changeScreenMock).toHaveBeenCalledWith('experience');
   });
 });
