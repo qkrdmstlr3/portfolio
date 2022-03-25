@@ -2,15 +2,25 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '../../../../test-utils';
 import Third from '.';
+import useScreen from '../../../../hooks/useScreen';
+import { ScreenType } from '../../../../recoil/screen/atom';
 
+jest.mock('../../../../hooks/useScreen.ts');
 const changeScreenMock = jest.fn();
+const useScreenMock = useScreen as jest.MockedFunction<typeof useScreen>;
+
+const getScreenObj = (currentScreen: ScreenType, changing: boolean) => ({
+  screen: { currentScreen, changing },
+  changeScreen: changeScreenMock,
+});
 
 describe('Component/Container/TopContainer/Third', () => {
   describe('screen test', () => {
     it('main', () => {
-      const component = render(<Third screen="main" changeScreen={changeScreenMock} />);
+      useScreenMock.mockReturnValue(getScreenObj('main', false));
+      const component = render(<Third />);
 
       const thirdTop = component.getByLabelText('third-top');
       const thirdBottom = component.getByLabelText('third-bottom');
@@ -25,7 +35,8 @@ describe('Component/Container/TopContainer/Third', () => {
     });
 
     it('skill', () => {
-      const component = render(<Third screen="skill" changeScreen={changeScreenMock} />);
+      useScreenMock.mockReturnValue(getScreenObj('skill', false));
+      const component = render(<Third />);
 
       const thirdTop = component.getByLabelText('third-top');
       const thirdBottom = component.getByLabelText('third-bottom');
@@ -40,7 +51,8 @@ describe('Component/Container/TopContainer/Third', () => {
     });
 
     it('contact', () => {
-      const component = render(<Third screen="contact" changeScreen={changeScreenMock} />);
+      useScreenMock.mockReturnValue(getScreenObj('contact', false));
+      const component = render(<Third />);
 
       const thirdTop = component.getByLabelText('third-top');
       const thirdBottom = component.getByLabelText('third-bottom');
@@ -55,7 +67,8 @@ describe('Component/Container/TopContainer/Third', () => {
     });
 
     it('portfolio', () => {
-      const component = render(<Third screen="portfolio" changeScreen={changeScreenMock} />);
+      useScreenMock.mockReturnValue(getScreenObj('portfolio', false));
+      const component = render(<Third />);
 
       const thirdTop = component.getByLabelText('third-top');
       const thirdBottom = component.getByLabelText('third-bottom');
@@ -70,7 +83,8 @@ describe('Component/Container/TopContainer/Third', () => {
     });
 
     it('experience', () => {
-      const component = render(<Third screen="experience" changeScreen={changeScreenMock} />);
+      useScreenMock.mockReturnValue(getScreenObj('experience', false));
+      const component = render(<Third />);
 
       const thirdTop = component.getByLabelText('third-top');
       const thirdBottom = component.getByLabelText('third-bottom');
@@ -86,11 +100,10 @@ describe('Component/Container/TopContainer/Third', () => {
   });
 
   it('change screen', () => {
-    const component = render(<Third screen="experience" changeScreen={changeScreenMock} />);
+    const component = render(<Third />);
 
     const top = component.getByLabelText('third-top');
     fireEvent.click(top);
     expect(changeScreenMock).toHaveBeenCalledTimes(1);
-    expect(changeScreenMock).toHaveBeenCalledWith('portfolio');
   });
 });
