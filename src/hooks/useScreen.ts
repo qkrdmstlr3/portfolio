@@ -15,7 +15,7 @@ function useScreen({ screenWantedToChange }: UseScreenProps): UseScreenTypes {
   const [screen, setScreen] = useRecoilState(screenState);
 
   const changeScreen = () => {
-    if (!screenWantedToChange) return;
+    if (!screenWantedToChange || screen.changing) return;
     setScreen({
       changing: true,
       currentScreen: screen.currentScreen === screenWantedToChange ? 'main' : screenWantedToChange,
